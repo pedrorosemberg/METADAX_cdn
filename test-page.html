@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Teste - ECONX CDN</title>
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide:wght@400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/components/css/styles.css">
+
+    <script src="/econx-loader.js"></script>
+    <script>
+        // Inicializa o loader com a logo padrão
+        EconxLoader.init({
+            logoUrl: '/assets/images/econx_b.svg',
+            duration: 3000
+        });
+    </script>
+</head>
+<body class="econx-body">
+    
+    <main class="econx-main">
+        <div class="econx-container">
+            <h1 style="text-align: center; margin-top: 50px;">Olá! Esta é uma página de teste.</h1>
+            <p style="text-align: center; max-width: 600px; margin: 20px auto; font-size: 1.1rem; color: var(--econx-gray-600);">
+                O header e o footer foram carregados dinamicamente. O loader da ECONX é exibido na inicialização.
+            </p>
+            <div style="height: 1000px; background: var(--econx-gray-100); margin-top: 50px; padding: 20px; text-align: center; border-radius: 12px;">
+                <p>Conteúdo de teste para demonstração de rolagem.</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="/component-loader.js"></script>
+</body>
+</html>

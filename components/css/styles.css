@@ -1,0 +1,621 @@
+:root {
+    --econx-primary: #2ECC71;
+    --econx-secondary: #1ABC9C;
+    --econx-dark: #2C3E50;
+    --econx-light: #ECF0F1;
+    --econx-white: #FFFFFF;
+    --econx-gray-100: #F8F9FA;
+    --econx-gray-200: #E9ECEF;
+    --econx-gray-300: #DEE2E6;
+    --econx-gray-600: #6C757D;
+    --econx-gray-800: #343A40;
+    --econx-gradient: linear-gradient(135deg, var(--econx-primary), var(--econx-secondary));
+    --econx-header-height: 70px;
+}
+
+/* Reset e Mobile-First */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body.econx-body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    line-height: 1.7 !important;
+    color: var(--econx-gray-800) !important;
+    background: var(--econx-white) !important;
+    padding-top: var(--econx-header-height) !important;
+}
+
+.econx-container {
+    width: 100% !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+}
+
+/* Header */
+.econx-header {
+    background: var(--econx-white) !important;
+    border-bottom: 1px solid var(--econx-gray-200) !important;
+    padding: 15px 0 !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+    backdrop-filter: blur(10px) !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+    height: var(--econx-header-height) !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.econx-header-content {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+}
+
+.econx-logo-link {
+    display: flex !important;
+    align-items: center !important;
+    text-decoration: none !important;
+    gap: 10px !important;
+}
+
+.econx-logo-link img {
+    height: 40px !important;
+}
+
+.econx-logo-link span {
+    font-family: 'Audiowide', sans-serif !important;
+    font-size: 24px !important;
+    font-weight: 400 !important;
+    color: var(--econx-dark) !important;
+}
+
+.econx-menu-toggle {
+    display: block !important;
+    font-size: 1.5rem !important;
+    background: none !important;
+    border: none !important;
+    cursor: pointer !important;
+    color: var(--econx-primary) !important;
+}
+
+.econx-nav {
+    position: fixed !important;
+    top: var(--econx-header-height) !important;
+    left: -100% !important;
+    width: 80% !important;
+    height: calc(100vh - var(--econx-header-height)) !important;
+    background-color: var(--econx-light) !important;
+    transition: all 0.3s ease !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 1rem !important;
+    overflow-y: auto !important;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1) !important;
+    z-index: 999 !important;
+}
+
+.econx-nav.active {
+    left: 0 !important;
+}
+
+.econx-nav-link-item {
+    list-style: none !important;
+    margin: 0.5rem 0 !important;
+}
+
+.econx-nav-link {
+    text-decoration: none !important;
+    color: var(--econx-dark) !important;
+    font-weight: 500 !important;
+    display: block !important;
+    padding: 0.5rem 0 !important;
+    transition: color 0.3s ease !important;
+}
+
+.econx-nav-link:hover, .econx-nav-link.active {
+    color: var(--econx-primary) !important;
+}
+
+.econx-cta-button {
+    display: inline-block !important;
+    background: var(--econx-gradient) !important;
+    color: var(--econx-white) !important;
+    padding: 12px 24px !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+    cursor: pointer !important;
+    font-size: 16px !important;
+}
+
+.econx-cta-button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(46, 204, 113, 0.3) !important;
+}
+
+/* Footer */
+.econx-footer {
+    background: var(--econx-dark) !important;
+    color: var(--econx-white) !important;
+    padding: 50px 0 30px 0 !important;
+    text-align: center !important;
+}
+
+.econx-footer-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+}
+
+.econx-footer-section {
+    margin-bottom: 1.5rem !important;
+    text-align: left !important;
+}
+
+.econx-footer-section h4 {
+    color: var(--econx-primary) !important;
+    margin-bottom: 0.75rem !important;
+    font-size: 1.1rem !important;
+    font-family: 'Audiowide', sans-serif !important;
+}
+
+.econx-footer-section ul {
+    list-style: none !important;
+}
+
+.econx-footer-section ul li {
+    margin-bottom: 0.4rem !important;
+}
+
+.econx-footer-section ul li a {
+    text-decoration: none !important;
+    color: var(--econx-gray-300) !important;
+    font-size: 0.9rem !important;
+    transition: color 0.3s ease !important;
+}
+
+.econx-footer-section ul li a:hover {
+    color: var(--econx-primary) !important;
+}
+
+.econx-small-sociallinks {
+    font-size: 0.8rem !important;
+    color: var(--econx-gray-300) !important;
+    margin-top: 20px !important;
+    display: flex !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 15px !important;
+}
+
+.econx-small-sociallinks a {
+    color: var(--econx-gray-300) !important;
+    text-decoration: none !important;
+}
+
+.econx-small-sociallinks a:hover {
+    color: var(--econx-primary) !important;
+    text-decoration: underline !important;
+}
+
+.econx-copyright {
+    text-align: center !important;
+    padding-top: 1rem !important;
+    margin-top: 1rem !important;
+    border-top: 1px solid rgba(255,255,255,0.1) !important;
+    font-size: 0.8rem !important;
+    color: var(--econx-gray-300) !important;
+}
+
+.econx-small-metadax-info {
+    font-size: smaller !important;
+    text-align: center !important;
+    margin-bottom: 5px !important;
+}
+
+.econx-mt-4 {
+    margin-top: 1.5rem !important;
+}
+
+/* Hero Section */
+.econx-hero {
+    background: var(--econx-gradient) !important;
+    color: var(--econx-white) !important;
+    padding: 80px 0 !important;
+    text-align: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.econx-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>') !important;
+    opacity: 0.3 !important;
+}
+
+.econx-hero-content {
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+.econx-hero h1 {
+    font-family: 'Audiowide', sans-serif !important;
+    font-size: 3.5rem !important;
+    font-weight: 400 !important;
+    margin-bottom: 20px !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+.econx-hero p {
+    font-size: 1.25rem !important;
+    margin-bottom: 40px !important;
+    opacity: 0.95 !important;
+    max-width: 600px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.econx-version-badge {
+    display: inline-block !important;
+    background: rgba(255,255,255,0.2) !important;
+    padding: 8px 16px !important;
+    border-radius: 20px !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    margin-bottom: 30px !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+/* Main Content */
+.econx-main {
+    padding: 60px 0 !important;
+}
+
+.econx-section {
+    margin-bottom: 80px !important;
+}
+
+.econx-section h2 {
+    font-family: 'Audiowide', sans-serif !important;
+    font-size: 2.5rem !important;
+    font-weight: 400 !important;
+    color: var(--econx-dark) !important;
+    margin-bottom: 30px !important;
+    text-align: center !important;
+}
+
+.econx-section h3 {
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+    color: var(--econx-dark) !important;
+    margin: 40px 0 20px 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+.econx-section h3::before {
+    content: '';
+    width: 4px;
+    height: 24px;
+    background: var(--econx-gradient);
+    border-radius: 2px;
+}
+
+/* Code Blocks */
+.econx-code-block {
+    background: #1a1a1a !important;
+    color: #f8f8f2 !important;
+    padding: 30px !important;
+    border-radius: 12px !important;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace !important;
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    overflow-x: auto !important;
+    margin: 20px 0 !important;
+    border: 1px solid var(--econx-gray-200) !important;
+    position: relative !important;
+}
+
+.econx-code-block::before {
+    content: attr(data-lang) !important;
+    position: absolute !important;
+    top: 10px !important;
+    right: 15px !important;
+    background: var(--econx-primary) !important;
+    color: white !important;
+    padding: 4px 8px !important;
+    border-radius: 4px !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+}
+
+/* Cards */
+.econx-card-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    gap: 30px !important;
+    margin: 40px 0 !important;
+}
+
+.econx-card {
+    background: var(--econx-white) !important;
+    border: 1px solid var(--econx-gray-200) !important;
+    border-radius: 16px !important;
+    padding: 30px !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.econx-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--econx-gradient);
+}
+
+.econx-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 20px 40px rgba(46, 204, 113, 0.1) !important;
+}
+
+.econx-card h4 {
+    font-size: 1.25rem !important;
+    font-weight: 600 !important;
+    color: var(--econx-dark) !important;
+    margin-bottom: 15px !important;
+}
+
+.econx-card p {
+    color: var(--econx-gray-600) !important;
+    margin-bottom: 20px !important;
+}
+
+/* Buttons */
+.econx-btn {
+    display: inline-block !important;
+    padding: 12px 24px !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+    cursor: pointer !important;
+    font-size: 16px !important;
+}
+
+.econx-btn-primary {
+    background: var(--econx-gradient) !important;
+    color: white !important;
+}
+
+.econx-btn-primary:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(46, 204, 113, 0.3) !important;
+}
+
+.econx-btn-outline {
+    background: transparent !important;
+    color: var(--econx-primary) !important;
+    border: 2px solid var(--econx-primary) !important;
+}
+
+.econx-btn-outline:hover {
+    background: var(--econx-primary) !important;
+    color: white !important;
+}
+
+/* Feature List */
+.econx-feature-list {
+    list-style: none !important;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+    gap: 20px !important;
+    margin: 30px 0 !important;
+}
+
+.econx-feature-list li {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 15px !important;
+    background: var(--econx-gray-100) !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+}
+
+.econx-feature-list li:hover {
+    background: var(--econx-gray-200) !important;
+}
+
+.econx-feature-list li::before {
+    content: '✅' !important;
+    font-size: 18px !important;
+    flex-shrink: 0 !important;
+}
+
+/* Support Section */
+.econx-support-section {
+    text-align: center !important;
+    background: var(--econx-gray-100) !important;
+    padding: 60px 40px !important;
+    border-radius: 16px !important;
+}
+
+.econx-support-section p {
+    font-size: 1.1rem !important;
+    margin-bottom: 40px !important;
+    color: var(--econx-gray-600) !important;
+}
+
+.econx-support-buttons {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 20px !important;
+    flex-wrap: wrap !important;
+}
+
+/* Demo Loader Styles */
+.econx-demo-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #ffffff;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
+}
+
+.econx-demo-loader.show {
+    display: flex;
+}
+
+.econx-demo-logo-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.econx-demo-logo {
+    width: 280px;
+    height: auto;
+    max-width: 80vw;
+    animation: econx-logo-breathing 2s ease-in-out infinite;
+    z-index: 2;
+    position: relative;
+}
+
+.econx-demo-loading-circle {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    max-width: 90vw;
+    max-height: 90vw;
+    border: 3px solid rgba(46, 204, 113, 0.1);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.econx-demo-loading-circle::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    width: 100%;
+    height: 100%;
+    border: 3px solid transparent;
+    border-top: 3px solid #2ECC71;
+    border-right: 3px solid #1ABC9C;
+    border-radius: 50%;
+    animation: econx-circle-rotate 1.5s linear infinite;
+}
+
+@keyframes econx-logo-breathing {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes econx-circle-rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Media Queries para responsividade */
+@media (min-width: 768px) {
+    .econx-footer-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .econx-header-content {
+        justify-content: space-between !important;
+        gap: 30px !important;
+    }
+    
+    .econx-nav {
+        position: static !important;
+        width: auto !important;
+        height: auto !important;
+        background: none !important;
+        flex-direction: row !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        gap: 30px !important; /* Adicionado para espaçamento em telas maiores */
+        align-items: center !important; /* Adicionado para alinhar verticalmente */
+    }
+
+    .econx-menu-toggle {
+        display: none !important;
+    }
+    
+    .econx-nav-link-item {
+        margin: 0 !important;
+    }
+
+    .econx-nav-link {
+        padding: 0 !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    .econx-footer-grid {
+        grid-template-columns: repeat(5, 1fr) !important;
+    }
+
+    .econx-nav-link-item {
+        margin: 0 !important;
+    }
+
+    .econx-nav-link {
+        padding: 0 !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .econx-hero h1 {
+        font-size: 2.5rem !important;
+    }
+
+    .econx-section h2 {
+        font-size: 2rem !important;
+    }
+
+    .econx-logo-link img {
+        height: 30px !important;
+    }
+
+    .econx-demo-logo {
+        width: 220px !important;
+    }
+    .econx-demo-loading-circle {
+        width: 260px !important;
+        height: 260px !important;
+    }
+}

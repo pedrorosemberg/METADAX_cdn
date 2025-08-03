@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECONX Loader - Documentação Oficial</title>
+    <meta name="description" content="Documentação oficial da biblioteca ECONX Loader para animações de carregamento profissionais">
+    <meta name="keywords" content="econx, loader, loading, animation, javascript, cdn">
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide:wght@400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/components/css/styles.css">
+</head>
+<body class="econx-body">
+
+    <section class="econx-hero">
+        <div class="econx-container">
+            <div class="econx-hero-content">
+                <div class="econx-version-badge">v1.0.0 - CDN Oficial</div>
+                <h1>ECONX Loader</h1>
+                <p>Biblioteca JavaScript moderna para animações de carregamento profissionais. Integração simples, performance otimizada e design responsivo.</p>
+                <div style="margin-top: 40px;">
+                    <a href="#instalacao" class="econx-btn econx-btn-primary">Começar Agora</a>
+                    <button onclick="showDemo()" class="econx-btn econx-btn-outline" style="margin-left: 15px;">Ver Demo</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="econx-main">
+        <div class="econx-container">
+
+            <section id="instalacao" class="econx-section">
+                <h2>📦 Instalação</h2>
+
+                <h3>Via CDN (Recomendado)</h3>
+                <p>A forma mais rápida e confiável de usar o ECONX Loader:</p>
+
+                <div class="econx-code-block" data-lang="HTML">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+<script src="https://cdn.loader.cloud.econx.com.br/econx-loader.js"></script>
+
+<script>
+// Inicialização básica
+document.addEventListener('DOMContentLoaded', () => {
+    EconxLoader.init({
+        logoUrl: '/assets/images/econx_b.svg',
+        duration: 2500
+    });
+});
+</script></div>
+
+                <div class="econx-card-grid">
+                    <div class="econx-card">
+                        <h4>🚀 Performance</h4>
+                        <p>CDN global com cache otimizado e compressão Gzip para carregamento instantâneo.</p>
+                    </div>
+                    <div class="econx-card">
+                        <h4>🔒 Segurança</h4>
+                        <p>HTTPS seguro com certificados SSL válidos e infraestrutura confiável.</p>
+                    </div>
+                    <div class="econx-card">
+                        <h4>📱 Responsivo</h4>
+                        <p>Funciona perfeitamente em todos os dispositivos e tamanhos de tela.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="configuracao" class="econx-section">
+                <h2>⚙️ Configuração</h2>
+
+                <h3>Configuração Básica</h3>
+                <div class="econx-code-block" data-lang="JavaScript">
+EconxLoader.init({
+    logoUrl: '/assets/images/econx_b.svg',  // URL da sua logo
+    duration: 2500,                         // Duração mínima em ms
+    autoHide: true                          // Ocultar automaticamente
+});</div>
+
+                <h3>Configuração Avançada</h3>
+                <div class="econx-code-block" data-lang="JavaScript">
+EconxLoader.init({
+    // Configurações básicas
+    logoUrl: '/assets/images/econx_b.svg',
+    duration: 3000,
+    fadeOut: 600,
+    autoHide: true,
+
+    // Personalização visual
+    logoSize: '280px',
+    circleColor: '#2ECC71',
+    backgroundColor: '#ffffff',
+
+    // Callbacks
+    onShow: () => {
+        console.log('Loader iniciado');
+        // Seu código aqui
+    },
+    onHide: () => {
+        console.log('Loader finalizado');
+        // Seu código aqui
+    }
+});</div>
+
+                <h3>Parâmetros de Configuração</h3>
+                <div class="econx-card-grid">
+                    <div class="econx-card">
+                        <h4>logoUrl</h4>
+                        <p><strong>Tipo:</strong> String<br>
+                        <strong>Padrão:</strong> '/assets/images/econx_b.svg'<br>
+                        URL da imagem da logo (PNG, JPG, SVG)</p>
+                    </div>
+                    <div class="econx-card">
+                        <h4>duration</h4>
+                        <p><strong>Tipo:</strong> Number<br>
+                        <strong>Padrão:</strong> 2500<br>
+                        Duração mínima do loader em milissegundos</p>
+                    </div>
+                    <div class="econx-card">
+                        <h4>fadeOut</h4>
+                        <p><strong>Tipo:</strong> Number<br>
+                        <strong>Padrão:</strong> 600<br>
+                        Tempo de transição de saída em ms</p>
+                    </div>
+                    <div class="econx-card">
+                        <h4>autoHide</h4>
+                        <p><strong>Tipo:</strong> Boolean<br>
+                        <strong>Padrão:</strong> true<br>
+                        Ocultar automaticamente quando a página carregar</p>
+                    </div>
+                    <div class="econx-card">
+                        <h4>logoSize</h4>
+                        <p><strong>Tipo:</strong> String<br>
+                        <strong>Padrão:</strong> '280px'<br>
+                        Tamanho da logo (CSS width)</p>
+                    </div>
+                    <div class="econx-card">
+                        <h4>circleColor</h4>
+                        <p><strong>Tipo:</strong> String<br>
+                        <strong>Padrão:</strong> '#2ECC71'<br>
+                        Cor do círculo de carregamento</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="exemplos" class="econx-section">
+                <h2>💡 Exemplos</h2>
+
+                <h3>Exemplo 1: Integração Básica</h3>
+                <div class="econx-code-block" data-lang="HTML">
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.loader.cloud.econx.com.br/econx-loader.js"></script>
+</head>
+<body>
+    <script>
+        EconxLoader.init({
+            logoUrl: '/assets/images/econx_b.svg'
+        });
+    </script>
+</body>
+</html></div>
+
+                <h3>Exemplo 2: Com Callback Personalizado</h3>
+                <div class="econx-code-block" data-lang="JavaScript">
+EconxLoader.init({
+    logoUrl: '/assets/images/econx_b.svg',
+    duration: 3000,
+    onShow: () => {
+        // Pausar vídeos de fundo
+        document.querySelectorAll('video').forEach(v => v.pause());
+    },
+    onHide: () => {
+        // Analytics
+        gtag('event', 'page_loaded', {
+            'custom_parameter': 'econx_loader_complete'
+        });
+
+        // Iniciar animações da página
+        startPageAnimations();
+    }
+});</div>
+
+                <h3>Exemplo 3: Controle Manual</h3>
+                <div class="econx-code-block" data-lang="JavaScript">
+// Inicializar sem auto-hide
+EconxLoader.init({
+    logoUrl: '/assets/images/econx_b.svg',
+    autoHide: false
+});
+
+// Controlar manualmente
+async function loadPageContent() {
+    try {
+        // Carregar dados
+        const data = await fetch('/api/data').then(r => r.json());
+
+        // Processar conteúdo
+        renderContent(data);
+
+        // Ocultar loader
+        EconxLoader.hide();
+    } catch (error) {
+        console.error('Erro ao carregar:', error);
+        EconxLoader.hide();
+    }
+}</div>
+            </section>
+
+            <section id="api" class="econx-section">
+                <h2>📚 Referência da API</h2>
+
+                <h3>Métodos Disponíveis</h3>
+
+                <div class="econx-card-grid">
+                    <div class="econx-card">
+                        <h4>EconxLoader.init(config)</h4>
+                        <p>Inicializa o loader com as configurações especificadas.</p>
+                        <div class="econx-code-block" data-lang="JavaScript">
+EconxLoader.init({
+    logoUrl: '/assets/images/econx_b.svg',
+    duration: 2500
+});</div>
+                    </div>
+
+                    <div class="econx-card">
+                        <h4>EconxLoader.show()</h4>
+                        <p>Exibe o loader manualmente.</p>
+                        <div class="econx-code-block" data-lang="JavaScript">
+EconxLoader.show();</div>
+                    </div>
+
+                    <div class="econx-card">
+                        <h4>EconxLoader.hide()</h4>
+                        <p>Oculta o loader manualmente.</p>
+                        <div class="econx-code-block" data-lang="JavaScript">
+EconxLoader.hide();</div>
+                    </div>
+
+                    <div class="econx-card">
+                        <h4>EconxLoader.isActive()</h4>
+                        <p>Verifica se o loader está ativo.</p>
+                        <div class="econx-code-block" data-lang="JavaScript">
+if (EconxLoader.isActive()) {
+    console.log('Loader ativo');
+}</div>
+                    </div>
+                </div>
+
+                <h3>Recursos e Especificações</h3>
+                <ul class="econx-feature-list">
+                    <li>Zero dependências externas</li>
+                    <li>Compatível com IE11+ e todos navegadores modernos</li>
+                    <li>Tamanho minificado: ~3KB gzipped</li>
+                    <li>Suporte a logos PNG, JPG e SVG</li>
+                    <li>Animações CSS3 otimizadas</li>
+                    <li>API Promise-based para controle assíncrono</li>
+                    <li>Eventos personalizáveis</li>
+                    <li>Design responsivo automático</li>
+                </ul>
+            </section>
+
+            <section class="econx-section econx-support-section">
+                <h2>🆘 Suporte e Comunidade</h2>
+                <p>
+                    Precisa de ajuda? Nossa equipe está pronta para apoiar seu projeto.
+                </p>
+
+                <div class="econx-support-buttons">
+                    <a href="mailto:dev@econx.com.br" class="econx-btn econx-btn-primary">📧 Suporte Técnico</a>
+                    <a href="https://github.com/econx/loader" class="econx-btn econx-btn-outline">📖 GitHub</a>
+                    <button onclick="showDemo()" class="econx-btn econx-btn-outline">🎬 Ver Demo</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div id="demoLoader" class="econx-demo-loader">
+        <div class="econx-demo-logo-container">
+            <div class="econx-demo-loading-circle"></div>
+            <img class="econx-demo-logo" src="/assets/images/econx_b.svg" alt="ECONX Loader Demo Logo">
+        </div>
+    </div>
+
+    <script src="/econx-loader.js"></script>
+    <script src="/component-loader.js"></script>
+    <script>
+        // Demo functionality
+        function showDemo() {
+            const demoLoader = document.getElementById('demoLoader');
+            demoLoader.classList.add('show');
+
+            setTimeout(() => {
+                demoLoader.classList.remove('show');
+            }, 3000);
+        }
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.econx-nav a');
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Console branding
+        console.log('%c🚀 ECONX Loader v1.0.0', 'color: #2ECC71; font-size: 16px; font-weight: bold;');
+        console.log('%c📚 Documentação: https://cdn.loader.cloud.econx.com.br/documentation.html', 'color: #1ABC9C; font-size: 12px;');
+        console.log('%c💻 CDN: https://cdn.loader.cloud.econx.com.br/econx-loader.js', 'color: #1ABC9C; font-size: 12px;');
+    </script>
+</body>
+</html>

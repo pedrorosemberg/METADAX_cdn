@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ECONX Loader - Documentação Oficial</title>
+        <meta name="description"
+            content="Documentação oficial da biblioteca ECONX Loader para animações de carregamento profissionais">
+        <meta name="keywords"
+            content="econx, loader, loading, animation, javascript, cdn">
+
+        <!-- Google Fonts - Audiowide para consistência com a marca ECONX -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Audiowide:wght@400&family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet">
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="/favicon.ico">
+        <style>
+        :root {
+            --econx-primary: #2ECC71;
+            --econx-secondary: #1ABC9C;
+            --econx-dark: #2C3E50;
+            --econx-light: #ECF0F1;
+            --econx-white: #FFFFFF;
+            --econx-gray-100: #F8F9FA;
+            --econx-gray-200: #E9ECEF;
+            --econx-gray-300: #DEE2E6;
+            --econx-gray-600: #6C757D;
+            --econx-gray-800: #343A40;
+            --econx-gradient: linear-gradient(135deg, var(--econx-primary), var(--econx-secondary));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--econx-gray-800);
+            background: var(--econx-white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--econx-white);
+            border-bottom: 1px solid var(--econx-gray-200);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: 'Audiowide', sans-serif;
+            font-size: 24px;
+            font-weight: 400;
+            color: var(--econx-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--econx-gradient);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav a {
+            color: var(--econx-gray-600);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover, .nav a.active {
+            color: var(--econx-primary);
+        }
+
+        /* Hero */
+        .hero {
+            background: var(--econx-gradient);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: 'Audiowide', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .version-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Main Content */
+        .main {
+            padding: 60px 0;
+        }
+
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .section h2 {
+            font-family: 'Audiowide', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: var(--econx-dark);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .section h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--econx-dark);
+            margin: 40px 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section h3::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: var(--econx-gradient);
+            border-radius: 2px;
+        }
+
+        /* Code Blocks */
+        .code-block {
+            background: #1a1a1a;
+            color: #f8f8f2;
+            padding: 30px;
+            border-radius: 12px;
+            font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid var(--econx-gray-200);
+            position: relative;
+        }
+
+        .code-block::before {
+            content: attr(data-lang);
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: var(--econx-primary);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .card {
+            background: var(--econx-white);
+            border: 1px solid var(--econx-gray-200);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--econx-gradient);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(46, 204, 113, 0.1);
+        }
+
+        .card h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--econx-dark);
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: var(--econx-gray-600);
+            margin-bottom: 20px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background: var(--econx-gradient);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(46, 204, 113, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--econx-primary);
+            border: 2px solid var(--econx-primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--econx-primary);
+            color: white;
+        }
+
+        /* Feature List */
+        .feature-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px;
+            background: var(--econx-gray-100);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-list li:hover {
+            background: var(--econx-gray-200);
+        }
+
+        .feature-list li::before {
+            content: '✅';
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--econx-dark);
+            color: white;
+            padding: 50px 0 30px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            margin-bottom: 30px;
+        }
+
+        .footer-logo {
+            font-family: 'Audiowide', sans-serif;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .footer-description {
+            color: var(--econx-gray-300);
+            margin-bottom: 30px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-links a {
+            color: var(--econx-gray-300);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--econx-primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-size: 14px;
+            color: var(--econx-gray-300);
+            line-height: 1.5;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav {
+                display: none;
+            }
+            
+            .section h2 {
+                font-size: 2rem;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        /* Demo Section */
+        .demo-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #ffffff;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
+        }
+
+        .demo-loader.show {
+            display: flex;
+        }
+
+        .demo-logo-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .demo-logo {
+            width: 280px;
+            height: auto;
+            max-width: 80vw;
+            animation: logoBreathing 2s ease-in-out infinite;
+            z-index: 2;
+            position: relative;
+        }
+
+        .demo-loading-circle {
+            position: absolute;
+            width: 320px;
+            height: 320px;
+            max-width: 90vw;
+            max-height: 90vw;
+            border: 3px solid rgba(46, 204, 113, 0.1);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .demo-loading-circle::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid transparent;
+            border-top: 3px solid #2ECC71;
+            border-right: 3px solid #1ABC9C;
+            border-radius: 50%;
+            animation: circleRotate 1.5s linear infinite;
+        }
+
+        @keyframes logoBreathing {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes circleRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+    </head>
+    <body>
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">E</div>
+                        ECONX Loader
+                    </a>
+                    <nav class="nav">
+                        <a href="#instalacao" class="active">Instalação</a>
+                        <a href="#configuracao">Configuração</a>
+                        <a href="#exemplos">Exemplos</a>
+                        <a href="#api">API</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="version-badge">v1.0.0 - CDN Oficial</div>
+                    <h1>ECONX Loader</h1>
+                    <p>Biblioteca JavaScript moderna para animações de
+                        carregamento profissionais. Integração simples,
+                        performance otimizada e design responsivo.</p>
+                    <div style="margin-top: 40px;">
+                        <a href="#instalacao" class="btn btn-primary">Começar
+                            Agora</a>
+                        <button onclick="showDemo()" class="btn btn-outline"
+                            style="margin-left: 15px;">Ver Demo</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <main class="main">
+            <div class="container">
+
+                <!-- Instalação -->
+                <section id="instalacao" class="section">
+                    <h2>📦 Instalação</h2>
+
+                    <h3>Via CDN (Recomendado)</h3>
+                    <p>A forma mais rápida e confiável de usar o ECONX
+                        Loader:</p>
+
+                    <div class="code-block" data-lang="HTML">
+                        &lt;!-- Inclua antes do fechamento do &lt;/head&gt;
+                        --&gt;
+                        &lt;link rel="preconnect"
+                        href="https://fonts.googleapis.com"&gt;
+                        &lt;link
+                        href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap"
+                        rel="stylesheet"&gt;
+                        &lt;script
+                        src="https://cdn.loader.cloud.econx.com.br/econx-loader.js"&gt;&lt;/script&gt;
+
+                        &lt;script&gt;
+                        // Inicialização básica
+                        document.addEventListener('DOMContentLoaded', () =&gt; {
+                        EconxLoader.init({
+                        logoUrl: 'https://seu-site.com/logo-econx.png',
+                        duration: 2500
+                        });
+                        });
+                        &lt;/script&gt;</div>
+
+                    <div class="card-grid">
+                        <div class="card">
+                            <h4>🚀 Performance</h4>
+                            <p>CDN global com cache otimizado e compressão Gzip
+                                para carregamento instantâneo.</p>
+                        </div>
+                        <div class="card">
+                            <h4>🔒 Segurança</h4>
+                            <p>HTTPS seguro com certificados SSL válidos e
+                                infraestrutura confiável.</p>
+                        </div>
+                        <div class="card">
+                            <h4>📱 Responsivo</h4>
+                            <p>Funciona perfeitamente em todos os dispositivos e
+                                tamanhos de tela.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Configuração -->
+                <section id="configuracao" class="section">
+                    <h2>⚙️ Configuração</h2>
+
+                    <h3>Configuração Básica</h3>
+                    <div class="code-block" data-lang="JavaScript">
+                        EconxLoader.init({
+                        logoUrl: 'https://seu-site.com/logo.png', // URL da sua
+                        logo
+                        duration: 2500, // Duração mínima em ms
+                        autoHide: true // Ocultar automaticamente
+                        });</div>
+
+                    <h3>Configuração Avançada</h3>
+                    <div class="code-block" data-lang="JavaScript">
+                        EconxLoader.init({
+                        // Configurações básicas
+                        logoUrl: 'https://seu-site.com/logo.png',
+                        duration: 3000,
+                        fadeOut: 600,
+                        autoHide: true,
+
+                        // Personalização visual
+                        logoSize: '280px',
+                        circleColor: '#2ECC71',
+                        backgroundColor: '#ffffff',
+
+                        // Callbacks
+                        onShow: () =&gt; {
+                        console.log('Loader iniciado');
+                        // Seu código aqui
+                        },
+                        onHide: () =&gt; {
+                        console.log('Loader finalizado');
+                        // Seu código aqui
+                        }
+                        });</div>
+
+                    <h3>Parâmetros de Configuração</h3>
+                    <div class="card-grid">
+                        <div class="card">
+                            <h4>logoUrl</h4>
+                            <p><strong>Tipo:</strong> String<br>
+                                <strong>Padrão:</strong> null<br>
+                                URL da imagem da logo (PNG, JPG, SVG)</p>
+                        </div>
+                        <div class="card">
+                            <h4>duration</h4>
+                            <p><strong>Tipo:</strong> Number<br>
+                                <strong>Padrão:</strong> 2500<br>
+                                Duração mínima do loader em milissegundos</p>
+                        </div>
+                        <div class="card">
+                            <h4>fadeOut</h4>
+                            <p><strong>Tipo:</strong> Number<br>
+                                <strong>Padrão:</strong> 600<br>
+                                Tempo de transição de saída em ms</p>
+                        </div>
+                        <div class="card">
+                            <h4>autoHide</h4>
+                            <p><strong>Tipo:</strong> Boolean<br>
+                                <strong>Padrão:</strong> true<br>
+                                Ocultar automaticamente quando a página
+                                carregar</p>
+                        </div>
+                        <div class="card">
+                            <h4>logoSize</h4>
+                            <p><strong>Tipo:</strong> String<br>
+                                <strong>Padrão:</strong> '280px'<br>
+                                Tamanho da logo (CSS width)</p>
+                        </div>
+                        <div class="card">
+                            <h4>circleColor</h4>
+                            <p><strong>Tipo:</strong> String<br>
+                                <strong>Padrão:</strong> '#2ECC71'<br>
+                                Cor do círculo de carregamento</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Exemplos -->
+                <section id="exemplos" class="section">
+                    <h2>💡 Exemplos</h2>
+
+                    <h3>Exemplo 1: Integração Básica</h3>
+                    <div class="code-block" data-lang="HTML">
+                        &lt;!DOCTYPE html&gt;
+                        &lt;html&gt;
+                        &lt;head&gt;
+                        &lt;script
+                        src="https://cdn.loader.cloud.econx.com.br/econx-loader.js"&gt;&lt;/script&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                        &lt;!-- Seu conteúdo aqui --&gt;
+
+                        &lt;script&gt;
+                        EconxLoader.init({
+                        logoUrl: '/assets/logo.png'
+                        });
+                        &lt;/script&gt;
+                        &lt;/body&gt;
+                        &lt;/html&gt;</div>
+
+                    <h3>Exemplo 2: Com Callback Personalizado</h3>
+                    <div class="code-block" data-lang="JavaScript">
+                        EconxLoader.init({
+                        logoUrl: '/logo.png',
+                        duration: 3000,
+                        onShow: () =&gt; {
+                        // Pausar vídeos de fundo
+                        document.querySelectorAll('video').forEach(v =&gt;
+                        v.pause());
+                        },
+                        onHide: () =&gt; {
+                        // Analytics
+                        gtag('event', 'page_loaded', {
+                        'custom_parameter': 'econx_loader_complete'
+                        });
+
+                        // Iniciar animações da página
+                        startPageAnimations();
+                        }
+                        });</div>
+
+                    <h3>Exemplo 3: Controle Manual</h3>
+                    <div class="code-block" data-lang="JavaScript">
+                        // Inicializar sem auto-hide
+                        EconxLoader.init({
+                        logoUrl: '/logo.png',
+                        autoHide: false
+                        });
+
+                        // Controlar manualmente
+                        async function loadPageContent() {
+                        try {
+                        // Carregar dados
+                        const data = await fetch('/api/data').then(r =&gt;
+                        r.json());
+
+                        // Processar conteúdo
+                        renderContent(data);
+
+                        // Ocultar loader
+                        EconxLoader.hide();
+                        } catch (error) {
+                        console.error('Erro ao carregar:', error);
+                        EconxLoader.hide();
+                        }
+                        }</div>
+                </section>
+
+                <!-- API -->
+                <section id="api" class="section">
+                    <h2>📚 Referência da API</h2>
+
+                    <h3>Métodos Disponíveis</h3>
+
+                    <div class="card-grid">
+                        <div class="card">
+                            <h4>EconxLoader.init(config)</h4>
+                            <p>Inicializa o loader com as configurações
+                                especificadas.</p>
+                            <div class="code-block" data-lang="JavaScript">
+                                EconxLoader.init({
+                                logoUrl: '/logo.png',
+                                duration: 2500
+                                });</div>
+                        </div>
+
+                        <div class="card">
+                            <h4>EconxLoader.show()</h4>
+                            <p>Exibe o loader manualmente.</p>
+                            <div class="code-block" data-lang="JavaScript">
+                                EconxLoader.show();</div>
+                        </div>
+
+                        <div class="card">
+                            <h4>EconxLoader.hide()</h4>
+                            <p>Oculta o loader manualmente.</p>
+                            <div class="code-block" data-lang="JavaScript">
+                                EconxLoader.hide();</div>
+                        </div>
+
+                        <div class="card">
+                            <h4>EconxLoader.isActive()</h4>
+                            <p>Verifica se o loader está ativo.</p>
+                            <div class="code-block" data-lang="JavaScript">
+                                if (EconxLoader.isActive()) {
+                                console.log('Loader ativo');
+                                }</div>
+                        </div>
+                    </div>
+
+                    <h3>Recursos e Especificações</h3>
+                    <ul class="feature-list">
+                        <li>Zero dependências externas</li>
+                        <li>Compatível com IE11+ e todos navegadores
+                            modernos</li>
+                        <li>Tamanho minificado: ~3KB gzipped</li>
+                        <li>Suporte a logos PNG, JPG e SVG</li>
+                        <li>Animações CSS3 otimizadas</li>
+                        <li>API Promise-based para controle assíncrono</li>
+                        <li>Eventos personalizáveis</li>
+                        <li>Design responsivo automático</li>
+                    </ul>
+                </section>
+
+                <!-- Suporte -->
+                <section class="section"
+                    style="text-align: center; background: var(--econx-gray-100); padding: 60px 40px; border-radius: 16px;">
+                    <h2>🆘 Suporte e Comunidade</h2>
+                    <p
+                        style="font-size: 1.1rem; margin-bottom: 40px; color: var(--econx-gray-600);">
+                        Precisa de ajuda? Nossa equipe está pronta para apoiar
+                        seu projeto.
+                    </p>
+
+                    <div
+                        style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                        <a href="mailto:dev@econx.com.br"
+                            class="btn btn-primary">📧 Suporte Técnico</a>
+                        <a href="https://github.com/econx/loader"
+                            class="btn btn-outline">📖 GitHub</a>
+                        <button onclick="showDemo()" class="btn btn-outline">🎬
+                            Ver Demo</button>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-logo">ECONX Loader</div>
+                    <p class="footer-description">
+                        Biblioteca JavaScript moderna para animações de
+                        carregamento profissionais.
+                        Desenvolvida com foco em performance e experiência do
+                        usuário.
+                    </p>
+                    <div class="footer-links">
+                        <a
+                            href="https://cdn.loader.cloud.econx.com.br/econx-loader.js">CDN</a>
+                        <a href="https://github.com/econx/loader">GitHub</a>
+                        <a href="mailto:dev@econx.com.br">Suporte</a>
+                        <a href="#api">API</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <strong>METADAX Tecnologia e Serviços LTDA</strong><br>
+                    Avenida Paulista, 1106, Sala 01, Andar 16, Bela Vista, São
+                    Paulo, SP, CEP 01310-914, Brasil<br>
+                    CNPJ: 59.324.751/0001-06<br>
+                    © 2025 METADAX - Todos os direitos reservados
+                </div>
+            </div>
+        </footer>
+
+        <!-- Demo Loader -->
+        <div id="demoLoader" class="demo-loader">
+            <div class="demo-logo-container">
+                <div class="demo-loading-circle"></div>
+                <svg class="demo-logo" viewBox="0 0 400 100"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <lineargradient id="g" x1="0%" y1="0%" x2="100%"
+                            y2="0%">
+                            <stop offset="0%"
+                                style="stop-color:#2ECC71;stop-opacity:1" />
+                            <stop offset="100%"
+                                style="stop-color:#1ABC9C;stop-opacity:1" />
+                        </lineargradient>
+                    </defs>
+                    <g>
+                        <path d="M20 20 L60 60 M60 20 L20 60" stroke="url(#g)"
+                            stroke-width="8" stroke-linecap="round" />
+                        <text x="90" y="55"
+                            font-family="Audiowide, Arial, sans-serif"
+                            font-size="36" font-weight="bold"
+                            fill="#333333">ECONX</text>
+                    </g>
+                </svg>
+            </div>
+        </div>
+
+        <script>
+        // Demo functionality
+        function showDemo() {
+            const demoLoader = document.getElementById('demoLoader');
+            demoLoader.classList.add('show');
+            
+            setTimeout(() => {
+                demoLoader.classList.remove('show');
+            }, 3000);
+        }
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Console branding
+        console.log('%c🚀 ECONX Loader v1.0.0', 'color: #2ECC71; font-size: 16px; font-weight: bold;');
+        console.log('%c📚 Documentação: https://cdn.loader.cloud.econx.com.br/documentation.html', 'color: #1ABC9C; font-size: 12px;');
+        console.log('%c💻 CDN: https://cdn.loader.cloud.econx.com.br/econx-loader.js', 'color: #1ABC9C; font-size: 12px;');
+    </script>
+    </body>
+</html>

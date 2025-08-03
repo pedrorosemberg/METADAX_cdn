@@ -19,7 +19,7 @@ Biblioteca JavaScript moderna para animações de carregamento profissionais com
 
 ```html
 <!-- Inclua antes do fechamento do </head> -->
-<script src="https://cdn.loader.cloud.metadax.com.br/metadax-loader.js"></script>
+<script src="https://cdn.metadax.cloud/metadax-loader.js"></script>
 
 <script>
 // Inicialização básica
@@ -34,10 +34,10 @@ MetadaxLoader.init({
 
 ```bash
 # Baixar arquivo
-curl -O https://cdn.loader.cloud.metadax.com.br/metadax-loader.js
+curl -O https://cdn.metadax.cloud/metadax-loader.js
 
 # Ou usando wget
-wget https://cdn.loader.cloud.metadax.com.br/metadax-loader.js
+wget https://cdn.metadax.cloud/metadax-loader.js
 ```
 
 ## 📖 Uso Básico
@@ -70,7 +70,7 @@ MetadaxLoader.init({
 <?php
 // functions.php
 function add_metadax_loader() {
-    wp_enqueue_script('metadax-loader', 'https://cdn.loader.cloud.metadax.com.br/metadax-loader.js', [], '1.0.0', false);
+    wp_enqueue_script('metadax-loader', 'https://cdn.metadax.cloud/metadax-loader.js', [], '1.0.0', false);
     
     $logo_url = get_template_directory_uri() . '/assets/logo-metadax.png';
     
@@ -94,7 +94,7 @@ export default function App() {
     useEffect(() => {
         // Carregar script
         const script = document.createElement('script');
-        script.src = 'https://cdn.loader.cloud.metadax.com.br/metadax-loader.js';
+        script.src = 'https://cdn.metadax.cloud/metadax-loader.js';
         script.onload = () => {
             window.MetadaxLoader.init({
                 logoUrl: '/logo-metadax.png',
@@ -122,7 +122,7 @@ import App from './App.vue'
 
 // Carregar METADAX Loader
 const script = document.createElement('script');
-script.src = 'https://cdn.loader.cloud.metadax.com.br/metadax-loader.js';
+script.src = 'https://cdn.metadax.cloud/metadax-loader.js';
 script.onload = () => {
     window.MetadaxLoader.init({
         logoUrl: '/logo-metadax.png',
@@ -250,9 +250,9 @@ MetadaxLoader.init({
 ### URLs Disponíveis
 
 ```
-Biblioteca JS:    https://cdn.loader.cloud.metadax.com.br/metadax-loader.js
-Documentação:     https://cdn.loader.cloud.metadax.com.br/documentation.html
-Versão minificada: https://cdn.loader.cloud.metadax.com.br/metadax-loader.min.js
+Biblioteca JS:    https://cdn.metadax.cloud/metadax-loader.js
+Documentação:     https://cdn.metadax.cloud/documentation.html
+Versão minificada: https://cdn.metadax.cloud/metadax-loader.min.js
 ```
 
 ### Verificação de Integridade
@@ -260,7 +260,7 @@ Versão minificada: https://cdn.loader.cloud.metadax.com.br/metadax-loader.min.j
 ```html
 <!-- Com verificação de integridade (recomendado para produção) -->
 <script 
-    src="https://cdn.loader.cloud.metadax.com.br/metadax-loader.js"
+    src="https://cdn.metadax.cloud/metadax-loader.js"
     integrity="sha384-[hash-será-gerado]"
     crossorigin="anonymous">
 </script>
@@ -344,7 +344,7 @@ describe('METADAX Loader', () => {
 <html>
 <head>
     <title>Teste METADAX Loader</title>
-    <script src="https://cdn.loader.cloud.metadax.com.br/metadax-loader.js"></script>
+    <script src="https://cdn.metadax.cloud/metadax-loader.js"></script>
 </head>
 <body>
     <h1>Página de Teste</h1>
@@ -442,7 +442,7 @@ MetadaxLoader.init({
 ```html
 <!-- Para suporte ao IE11 -->
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6,Promise"></script>
-<script src="https://cdn.loader.cloud.metadax.com.br/metadax-loader.js"></script>
+<script src="https://cdn.metadax.cloud/metadax-loader.js"></script>
 ```
 
 ## 🤝 Contribuição
@@ -483,7 +483,7 @@ Abra uma issue no GitHub com:
 - ✨ Animações CSS3 otimizadas
 - ✨ API completa para controle manual
 - ✨ Integração com fonte Audiowide
-- ✨ CDN oficial em cdn.loader.cloud.metadax.com.br
+- ✨ CDN oficial em cdn.metadax.cloud
 - ✨ Documentação completa
 - ✨ Suporte responsivo automático
 
@@ -492,7 +492,7 @@ Abra uma issue no GitHub com:
 ### Suporte Técnico
 
 - **Email:** dev@metadax.com.br
-- **Documentação:** https://cdn.loader.cloud.metadax.com.br/documentation.html
+- **Documentação:** https://cdn.metadax.cloud/documentation.html
 - **GitHub:** https://github.com/metadax/loader
 - **Status CDN:** https://status.metadax.com.br
 

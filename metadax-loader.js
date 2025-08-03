@@ -2,8 +2,8 @@
  * METADAX Loader v1.0.0
  * Biblioteca JavaScript para animações de carregamento profissionais
  *
- * CDN: https://cdn.loader.cloud.metadax.com.br/metadax-loader.js
- * Docs: https://cdn.loader.cloud.metadax.com.br/documentation.html
+ * CDN: https://cdn.metadax.cloud/metadax-loader.js
+ * Docs: https://cdn.metadax.cloud/documentation.html
  *
  * Copyright (c) 2025 METADAX Tecnologia e Serviços LTDA
  * CNPJ: 59.324.751/0001-06
@@ -31,7 +31,7 @@
                 fadeOut: 600,
                 autoHide: true,
                 logoSize: '280px',
-                circleColor: '#2ECC71',
+                circleColor: '#0056B3',
                 backgroundColor: '#ffffff',
                 onShow: null,
                 onHide: null
@@ -198,7 +198,7 @@
                         height: 320px;
                         max-width: 90vw;
                         max-height: 90vw;
-                        border: 3px solid rgba(46, 204, 113, 0.1);
+                        border: 3px solid #057effff;
                         border-radius: 50%;
                         z-index: 1;
                     }
@@ -443,8 +443,8 @@
         getVersion() {
             return {
                 version: this.version,
-                cdn: 'https://cdn.loader.cloud.metadax.com.br',
-                docs: 'https://cdn.loader.cloud.metadax.com.br/documentation.html'
+                cdn: 'https://cdn.metadax.cloud/',
+                docs: 'https://cdn.metadax.cloud/documentation.html'
             };
         }
 
@@ -513,7 +513,7 @@
     }
 
     // Log de carregamento
-    console.log('%c🚀 METADAX Loader v1.0.0 carregado', 'color: #2ECC71; font-size: 14px; font-weight: bold;');
-    console.log('%cCDN: https://cdn.loader.cloud.metadax.com.br/metadax-loader.js', 'color: #1ABC9C; font-size: 12px;');
+    console.log('%c🚀 METADAX Loader v1.0.0 carregado', 'color: #0056B3; font-size: 14px; font-weight: bold;');
+    console.log('%cCDN: https://https://cdn.metadax.cloud/metadax-loader.js', 'color: #056bd8ff; font-size: 12px;');
 
 })(window, document);

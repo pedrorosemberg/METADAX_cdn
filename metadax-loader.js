@@ -2,7 +2,7 @@
  * METADAX Loader v1.0.0
  * Biblioteca JavaScript para animações de carregamento profissionais
  *
- * CDN: https://cdn.metadax.cloud/metadax-loader.js
+ * CDN: https://cdn.metadax.cloud/
  * Docs: https://cdn.metadax.cloud/documentation.html
  *
  * Copyright (c) 2025 METADAX Tecnologia e Serviços LTDA
@@ -27,12 +27,12 @@
             this.isInitialized = false;
             // Configurações padrão do loader
             this.config = {
-                // Imagem padrão de carregamento
-                logoUrl: '/assets/images/loader.png',
+                // Imagem padrão de carregamento, conforme solicitado
+                logoUrl: 'assets/images/loader.png',
                 duration: 2500,
                 fadeOut: 600,
                 autoHide: true,
-                logoSize: '250px',
+                logoSize: '280px',
                 // Cores do círculo atualizadas para corresponder ao manual de marca
                 circleColor: '#0056B3',
                 backgroundColor: '#ffffff',
@@ -114,20 +114,20 @@
             if (!this.loader) {
                 this.createLoader();
             }
+            // Obter a imagem após a criação do loader
+            this.logoImg = this.loader.querySelector('.metadax-logo-img');
         }
 
         /**
          * Cria os elementos HTML do loader
          */
         createLoader() {
-            // Inject CSS se não existir
-            if (!document.getElementById('metadax-loader-styles')) {
-                this.injectStyles();
-            }
+            // Injetar CSS
+            this.injectStyles();
 
             // Criar HTML
             const logoSvg = `
-                <svg class="metadax-logo-svg" viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg">
+                <svg class="metadax-logo-svg" viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg" style="display:none;">
                     <defs>
                         <linearGradient id="metadax-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
                             <!-- Cores do gradiente atualizadas conforme o manual de marca -->
@@ -142,15 +142,15 @@
                 </svg>
             `;
 
-            const logoImg = `<img class="metadax-logo-img" alt="Loading...">`;
-
-            const loaderContent = this.config.logoUrl ? logoImg : logoSvg;
+            // A tag img não deve ter o src hardcoded aqui, ele será setado dinamicamente
+            const logoImg = `<img class="metadax-logo-img" alt="Loading..." style="display: none;">`;
             
             const loaderHTML = `
                 <div id="metadax-loader" class="metadax-loader">
                     <div class="metadax-logo-container">
                         <div class="metadax-loading-circle"></div>
-                        ${loaderContent}
+                        ${logoImg}
+                        ${logoSvg}
                     </div>
                 </div>
             `;
@@ -158,15 +158,108 @@
             // Inserir no início do body
             document.body.insertAdjacentHTML('afterbegin', loaderHTML);
             this.loader = document.getElementById('metadax-loader');
-            this.logoImg = this.loader.querySelector('.metadax-logo-img');
         }
 
         /**
          * Injeta os estilos CSS necessários
          */
         injectStyles() {
-            // Os estilos foram movidos para um arquivo CSS externo para maior modularidade e coerência
-            // com o restante do projeto. Não há necessidade de injetá-los via JavaScript.
+            // Reintroduzindo os estilos CSS para garantir que o loader funcione corretamente
+            const styles = `
+                <style id="metadax-loader-styles">
+                    .metadax-loader {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100vw;
+                        height: 100vh;
+                        background: #ffffff;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        z-index: 99999;
+                        transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
+                    }
+
+                    .metadax-loader.metadax-hidden {
+                        opacity: 0;
+                        visibility: hidden;
+                    }
+
+                    .metadax-logo-container {
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    .metadax-logo-img, .metadax-logo-svg {
+                        width: 280px;
+                        height: auto;
+                        max-width: 80vw;
+                        animation: metadax-logo-breathing 2s ease-in-out infinite;
+                        z-index: 2;
+                        position: relative;
+                    }
+
+                    .metadax-loading-circle {
+                        position: absolute;
+                        width: 320px;
+                        height: 320px;
+                        max-width: 90vw;
+                        max-height: 90vw;
+                        border: 3px solid rgba(0, 86, 179, 0.1);
+                        border-radius: 50%;
+                        z-index: 1;
+                    }
+
+                    .metadax-loading-circle::before {
+                        content: '';
+                        position: absolute;
+                        top: -3px;
+                        left: -3px;
+                        width: 100%;
+                        height: 100%;
+                        border: 3px solid transparent;
+                        border-top: 3px solid #0056B3; /* Cor primária da marca */
+                        border-right: 3px solid #1E1E1E; /* Cor secundária da marca */
+                        border-radius: 50%;
+                        animation: metadax-circle-rotate 1.5s linear infinite;
+                    }
+
+                    @keyframes metadax-logo-breathing {
+                        0%, 100% { transform: scale(1); }
+                        50% { transform: scale(1.05); }
+                    }
+
+                    @keyframes metadax-circle-rotate {
+                        0% { transform: rotate(0deg); }
+                        100% { transform: rotate(360deg); }
+                    }
+
+                    @media (max-width: 768px) {
+                        .metadax-logo-img, .metadax-logo-svg {
+                            width: 220px;
+                        }
+                        .metadax-loading-circle {
+                            width: 260px;
+                            height: 260px;
+                        }
+                    }
+
+                    @media (max-width: 480px) {
+                        .metadax-logo-img, .metadax-logo-svg {
+                            width: 180px;
+                        }
+                        .metadax-loading-circle {
+                            width: 220px;
+                            height: 220px;
+                        }
+                    }
+                </style>
+            `;
+
+            document.head.insertAdjacentHTML('beforeend', styles);
         }
 
         /**
@@ -238,21 +331,29 @@
          * @param {string} logoUrl - URL da nova logo
          */
         updateLogo(logoUrl) {
-            if (!logoUrl || !this.logoImg) return;
+            if (!logoUrl || !this.logoImg) {
+                this.log('URL da logo não fornecida ou elemento de imagem não encontrado.', 'error');
+                return;
+            }
 
-            // Esconder SVG por padrão e carregar a imagem
             const logoSvg = this.loader.querySelector('.metadax-logo-svg');
-            if (logoSvg) logoSvg.style.display = 'none';
-
-            this.logoImg.src = logoUrl;
-            this.logoImg.style.display = 'block';
             
-            // Fallback em caso de erro
+            // Carrega a imagem e define a lógica de exibição
+            this.logoImg.onload = () => {
+                this.logoImg.style.display = 'block';
+                if (logoSvg) logoSvg.style.display = 'none';
+                this.log('Logo carregada com sucesso.', 'info');
+            };
+
+            // Em caso de erro, exibe o SVG de fallback
             this.logoImg.onerror = () => {
                 this.logoImg.style.display = 'none';
                 if (logoSvg) logoSvg.style.display = 'block';
-                this.log('Erro ao carregar logo, usando fallback', 'warn');
+                this.log('Erro ao carregar logo, usando fallback SVG.', 'warn');
             };
+
+            // Define a fonte da imagem
+            this.logoImg.src = logoUrl;
         }
 
         /**
@@ -263,9 +364,20 @@
                 setTimeout(() => this.hide(), this.config.duration);
             };
 
-            if (document.readyState === 'complete') {
+            if (this.logoImg && this.logoImg.complete) {
                 hideLoader();
+            } else if (this.logoImg) {
+                this.logoImg.addEventListener('load', hideLoader);
+                this.logoImg.addEventListener('error', hideLoader); // Adiciona listener para erro também
+                window.addEventListener('load', () => {
+                  // Fallback para garantir que o loader seja escondido mesmo se a imagem não carregar
+                  // ou se o evento 'load' da imagem não for disparado por algum motivo.
+                  if (this.isActive()) {
+                     setTimeout(() => this.hide(), this.config.duration);
+                  }
+                });
             } else {
+                // Caso não haja imagem, apenas aguarda o carregamento completo da janela
                 window.addEventListener('load', hideLoader);
             }
         }
@@ -354,7 +466,8 @@
         getVersion() {
             return {
                 version: this.version,
-                cdn: 'https://cdn.metadax.cloud/',
+                // Corrigido para o CDN solicitado
+                cdn: 'https://cdn.metadax.cloud',
                 docs: 'https://cdn.metadax.cloud/documentation.html'
             };
         }
@@ -423,8 +536,8 @@
         });
     }
 
-    // Log de carregamento
+    // Log de carregamento corrigido
     console.log('%c🚀 METADAX Loader v1.0.0 carregado', 'color: #0056B3; font-size: 14px; font-weight: bold;');
-    console.log('%cCDN: https://https://cdn.metadax.cloud/metadax-loader.js', 'color: #056bd8ff; font-size: 12px;');
+    console.log('%cCDN: https://cdn.metadax.cloud/metadax-loader.js', 'color: #1E1E1E; font-size: 12px;');
 
 })(window, document);

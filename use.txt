@@ -2,7 +2,7 @@ CSS: https://cdn.metadax.cloud/components/css/styles.css
 
 FAVICON: https://cdn.metadax.cloud/favicon.ico
 
-LOADER: https://cdn.metadax.cloud/econx-loader.js
+LOADER: https://cdn.metadax.cloud/metadax-loader.js
 
 COMPONENT-LOADER: https://cdn.metadax.cloud/component-loader.js
 
@@ -10,16 +10,27 @@ HEADER: https://cdn.metadax.cloud/components/html/header.html
 
 FOOTER: https://cdn.metadax.cloud/components/html/header.html
 
-HEADER IMAGE: https://cdn.metadax.cloud/assets/images/econx_b.png
+HEADER IMAGE: https://cdn.metadax.cloud/assets/images/logo-black.png
 
-LIGHT HEADER IMAGE: https://cdn.metadax.cloud/assets/images/econx_w.png
+LIGHT HEADER IMAGE: https://cdn.metadax.cloud/assets/images/logo-white.png
 
-DARK HEADER IMAGE: https://cdn.metadax.cloud/assets/images/econx_b.png
+DARK HEADER IMAGE: https://cdn.metadax.cloud/assets/images/metadax/logo-black.png
 
 
 
 ADICIONE NO CÓDIGO ENTRE O <HEAD>...</HEAD>:
 
+    <!-- Google tag (gtag.js) -->
+    <script async
+        src="https://www.googletagmanager.com/gtag/js?id=G-YE495CHDF1">
+    </script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-YE495CHDF1');
+    </script>
+        
     <link rel="canonical" href="https://metadax.com.br/">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">

@@ -1,0 +1,82 @@
+<div id="metadax-privacy-banner" class="metadax-privacy-banner">
+    <div class="metadax-container metadax-privacy-banner-content">
+        <p class="metadax-privacy-text">
+            Este site utiliza cookies para melhorar a sua experiência. Ao continuar, você concorda com nossa
+            <a href="https://metadax.com.br/institucional/governanca/politicas/privacidade.html" target="_blank" rel="noopener noreferrer" class="metadax-banner-link">Política de Privacidade</a>,
+            <a href="https://metadax.com.br/institucional/governanca/termos/termos-de-uso.html" target="_blank" rel="noopener noreferrer" class="metadax-banner-link">Termos de Uso</a> e
+            <a href="https://metadax.com.br/institucional/governanca/politicas/cookies.html" target="_blank" rel="noopener noreferrer" class="metadax-banner-link">Política de Cookies</a>.
+        </p>
+        <button id="metadax-accept-privacy" class="metadax-btn metadax-btn-primary">Aceitar</button>
+    </div>
+</div>
+
+<style>
+    .metadax-privacy-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: var(--metadax-dark);
+        color: var(--metadax-white);
+        padding: 15px 0;
+        z-index: 1050;
+        transition: transform 0.3s ease-in-out;
+        transform: translateY(100%);
+    }
+
+    .metadax-privacy-banner.show {
+        transform: translateY(0);
+    }
+
+    .metadax-privacy-banner-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .metadax-privacy-text {
+        flex: 1;
+        margin-bottom: 0;
+        font-size: 0.9rem;
+    }
+    
+    .metadax-banner-link {
+        color: var(--metadax-primary);
+        text-decoration: underline;
+    }
+
+    .metadax-banner-link:hover {
+        color: var(--metadax-light);
+    }
+
+    @media (max-width: 768px) {
+        .metadax-privacy-banner-content {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const privacyBanner = document.getElementById('metadax-privacy-banner');
+        const acceptButton = document.getElementById('metadax-accept-privacy');
+
+        if (!privacyBanner || !acceptButton) return;
+
+        const hasAccepted = localStorage.getItem('metadaxPrivacyAccepted');
+
+        if (!hasAccepted) {
+            setTimeout(() => {
+                privacyBanner.classList.add('show');
+            }, 1000);
+        }
+
+        acceptButton.addEventListener('click', () => {
+            localStorage.setItem('metadaxPrivacyAccepted', 'true');
+            privacyBanner.classList.remove('show');
+        });
+    });
+</script>

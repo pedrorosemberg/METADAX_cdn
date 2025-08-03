@@ -1,17 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Carrega o header
-    fetch('https://cdn.metadax.cloud/components/html/header.html')
-        .then(response => response.text())
-        .then(data => {
-            document.body.insertAdjacentHTML('afterbegin', data);
-        })
-        .catch(error => console.error('METADAX Component Loader: Erro ao carregar o header:', error));
+    const components = [
+        'https://cdn.metadax.cloud/components/html/header.html',
+        'https://cdn.metadax.cloud/components/html/footer.html',
+        'https://cdn.metadax.cloud/components/html/back-to-top.html',
+        'https://cdn.metadax.cloud/components/html/privacy-banner.html',
+        'https://cdn.metadax.cloud/components/html/new-info.html'
+    ];
 
-    // Carrega o footer
-    fetch('https://cdn.metadax.cloud/components/html/footer.html')
-        .then(response => response.text())
-        .then(data => {
-            document.body.insertAdjacentHTML('beforeend', data);
-        })
-        .catch(error => console.error('METADAX Component Loader: Erro ao carregar o footer:', error));
+    const loadComponent = (url, position = 'beforeend') => {
+        return fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(data => {
+                document.body.insertAdjacentHTML(position, data);
+            })
+            .catch(error => console.error(`METADAX Component Loader: Erro ao carregar o componente de ${url}:`, error));
+    };
+
+    // Carrega o header no início do body
+    loadComponent(components[0], 'afterbegin');
+
+    // Carrega os demais componentes no final do body
+    components.slice(1).forEach(componentUrl => {
+        loadComponent(componentUrl);
+    });
 });

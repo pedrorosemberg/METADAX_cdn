@@ -1,0 +1,61 @@
+<a href="#" id="metadax-back-to-top" class="metadax-back-to-top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+    </svg>
+</a>
+
+<style>
+    .metadax-back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: var(--metadax-gradient);
+        color: var(--metadax-white);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: none; /* Inicia oculto */
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        transition: all 0.3s ease;
+        z-index: 900;
+    }
+
+    .metadax-back-to-top:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    }
+
+    .metadax-back-to-top.show {
+        display: flex;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const backToTopButton = document.getElementById('metadax-back-to-top');
+
+        if (!backToTopButton) return;
+
+        const toggleVisibility = () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        };
+
+        window.addEventListener('scroll', toggleVisibility);
+
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>

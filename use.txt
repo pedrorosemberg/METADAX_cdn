@@ -1,0 +1,39 @@
+CSS: https://cdn.metadax.cloud/components/css/styles.css
+
+FAVICON: https://cdn.metadax.cloud/favicon.ico
+
+LOADER: https://cdn.metadax.cloud/econx-loader.js
+
+COMPONENT-LOADER: https://cdn.metadax.cloud/component-loader.js
+
+HEADER: https://cdn.metadax.cloud/components/html/header.html
+
+FOOTER: https://cdn.metadax.cloud/components/html/header.html
+
+HEADER IMAGE: https://cdn.metadax.cloud/assets/images/econx_b.png
+
+LIGHT HEADER IMAGE: https://cdn.metadax.cloud/assets/images/econx_w.png
+
+DARK HEADER IMAGE: https://cdn.metadax.cloud/assets/images/econx_b.png
+
+
+
+ADICIONE NO CÓDIGO ENTRE O <HEAD>...</HEAD>:
+
+    <link rel="icon" type="image/x-icon" href="https://cdn.metadax.cloud/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.metadax.cloud/components/css/styles.css">
+
+
+ADICIONE NO CÓDIGO ENTRE O <BODY>...</BODY>:
+
+
+    <script src="https://cdn.metadax.cloud/econx-loader.js"></script>
+    <script src="https://cdn.metadax.cloud/component-loader.js"></script>
+    <script>
+        // Inicializa o loader com a logo padrão
+        EconxLoader.init({
+            logoUrl: 'https://cdn.metadax.cloud/assets/images/loader.png',
+            duration: 3000
+        });
+    </script>
+

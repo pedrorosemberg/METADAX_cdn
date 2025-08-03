@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Carrega o header
-    fetch('/components/html/header.html')
+    fetch('https://cdn.metadax.cloud/components/html/header.html')
         .then(response => response.text())
         .then(data => {
             document.body.insertAdjacentHTML('afterbegin', data);
@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => console.error('METADAX Component Loader: Erro ao carregar o header:', error));
 
     // Carrega o footer
-    fetch('/components/html/footer.html')
+    fetch('https://cdn.metadax.cloud/components/html/footer.html')
         .then(response => response.text())
         .then(data => {
             document.body.insertAdjacentHTML('beforeend', data);

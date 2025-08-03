@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECONX Loader - Documentação Oficial</title>
-    <meta name="description" content="Documentação oficial da biblioteca ECONX Loader para animações de carregamento profissionais">
-    <meta name="keywords" content="econx, loader, loading, animation, javascript, cdn">
+    <title>METADAX Loader - Documentação Oficial</title>
+    <meta name="description" content="Documentação oficial da biblioteca METADAX Loader para animações de carregamento profissionais">
+    <meta name="keywords" content="metadax, loader, loading, animation, javascript, cdn">
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
@@ -15,85 +15,86 @@
 
     <link rel="stylesheet" href="/components/css/styles.css">
 </head>
-<body class="econx-body">
+<body class="metadax-body">
 
-    <section class="econx-hero">
-        <div class="econx-container">
-            <div class="econx-hero-content">
-                <div class="econx-version-badge">v1.0.0 - CDN Oficial</div>
-                <h1>ECONX Loader</h1>
+    <section class="metadax-hero">
+        <div class="metadax-container">
+            <div class="metadax-hero-content">
+                <div class="metadax-version-badge">v1.0.0 - CDN Oficial</div>
+                <h1>METADAX Loader</h1>
                 <p>Biblioteca JavaScript moderna para animações de carregamento profissionais. Integração simples, performance otimizada e design responsivo.</p>
                 <div style="margin-top: 40px;">
-                    <a href="#instalacao" class="econx-btn econx-btn-primary">Começar Agora</a>
-                    <button onclick="showDemo()" class="econx-btn econx-btn-outline" style="margin-left: 15px;">Ver Demo</button>
+                    <a href="#instalacao" class="metadax-btn metadax-btn-primary">Começar Agora</a>
+                    <button onclick="showDemo()" class="metadax-btn metadax-btn-outline" style="margin-left: 15px;">Ver Demo</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <main class="econx-main">
-        <div class="econx-container">
+    <main class="metadax-main">
+        <div class="metadax-container">
 
-            <section id="instalacao" class="econx-section">
+            <section id="instalacao" class="metadax-section">
                 <h2>📦 Instalação</h2>
 
                 <h3>Via CDN (Recomendado)</h3>
-                <p>A forma mais rápida e confiável de usar o ECONX Loader:</p>
+                <p>A forma mais rápida e confiável de usar o METADAX Loader:</p>
 
-                <div class="econx-code-block" data-lang="HTML">
+                <div class="metadax-code-block" data-lang="HTML">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
-<script src="https://cdn.loader.cloud.econx.com.br/econx-loader.js"></script>
+<script src="https://cdn.loader.cloud.metadax.com.br/metadax-loader.js"></script>
 
 <script>
 // Inicialização básica
 document.addEventListener('DOMContentLoaded', () => {
-    EconxLoader.init({
-        logoUrl: '/assets/images/econx_b.svg',
+    // Atualizado para usar logo branco em fundo escuro, conforme o manual de marca
+    MetadaxLoader.init({
+        logoUrl: '/assets/images/metadax_negativa.svg',
         duration: 2500
     });
 });
 </script></div>
 
-                <div class="econx-card-grid">
-                    <div class="econx-card">
+                <div class="metadax-card-grid">
+                    <div class="metadax-card">
                         <h4>🚀 Performance</h4>
                         <p>CDN global com cache otimizado e compressão Gzip para carregamento instantâneo.</p>
                     </div>
-                    <div class="econx-card">
+                    <div class="metadax-card">
                         <h4>🔒 Segurança</h4>
                         <p>HTTPS seguro com certificados SSL válidos e infraestrutura confiável.</p>
                     </div>
-                    <div class="econx-card">
+                    <div class="metadax-card">
                         <h4>📱 Responsivo</h4>
                         <p>Funciona perfeitamente em todos os dispositivos e tamanhos de tela.</p>
                     </div>
                 </div>
             </section>
 
-            <section id="configuracao" class="econx-section">
+            <section id="configuracao" class="metadax-section">
                 <h2>⚙️ Configuração</h2>
 
                 <h3>Configuração Básica</h3>
-                <div class="econx-code-block" data-lang="JavaScript">
-EconxLoader.init({
-    logoUrl: '/assets/images/econx_b.svg',  // URL da sua logo
+                <div class="metadax-code-block" data-lang="JavaScript">
+MetadaxLoader.init({
+    logoUrl: '/assets/images/metadax_p.svg',  // URL da sua logo
     duration: 2500,                         // Duração mínima em ms
     autoHide: true                          // Ocultar automaticamente
 });</div>
 
                 <h3>Configuração Avançada</h3>
-                <div class="econx-code-block" data-lang="JavaScript">
-EconxLoader.init({
+                <div class="metadax-code-block" data-lang="JavaScript">
+MetadaxLoader.init({
     // Configurações básicas
-    logoUrl: '/assets/images/econx_b.svg',
+    logoUrl: '/assets/images/metadax_p.svg',
     duration: 3000,
     fadeOut: 600,
     autoHide: true,
 
     // Personalização visual
     logoSize: '280px',
-    circleColor: '#2ECC71',
+    circleColor: '#0056B3', // Alterado para a cor primária da METADAX
     backgroundColor: '#ffffff',
 
     // Callbacks
@@ -108,38 +109,38 @@ EconxLoader.init({
 });</div>
 
                 <h3>Parâmetros de Configuração</h3>
-                <div class="econx-card-grid">
-                    <div class="econx-card">
+                <div class="metadax-card-grid">
+                    <div class="metadax-card">
                         <h4>logoUrl</h4>
                         <p><strong>Tipo:</strong> String<br>
-                        <strong>Padrão:</strong> '/assets/images/econx_b.svg'<br>
+                        <strong>Padrão:</strong> '/assets/images/metadax_b.svg'<br>
                         URL da imagem da logo (PNG, JPG, SVG)</p>
                     </div>
-                    <div class="econx-card">
+                    <div class="metadax-card">
                         <h4>duration</h4>
                         <p><strong>Tipo:</strong> Number<br>
                         <strong>Padrão:</strong> 2500<br>
                         Duração mínima do loader em milissegundos</p>
                     </div>
-                    <div class="econx-card">
+                    <div class="metadax-card">
                         <h4>fadeOut</h4>
                         <p><strong>Tipo:</strong> Number<br>
                         <strong>Padrão:</strong> 600<br>
                         Tempo de transição de saída em ms</p>
                     </div>
-                    <div class="econx-card">
+                    <div class="metadax-card">
                         <h4>autoHide</h4>
                         <p><strong>Tipo:</strong> Boolean<br>
                         <strong>Padrão:</strong> true<br>
                         Ocultar automaticamente quando a página carregar</p>
                     </div>
-                    <div class="econx-card">
+                    <div class="metadax-card">
                         <h4>logoSize</h4>
                         <p><strong>Tipo:</strong> String<br>
                         <strong>Padrão:</strong> '280px'<br>
                         Tamanho da logo (CSS width)</p>
                     </div>
-                    <div class="econx-card">
+                    <div class="metadax-card">
                         <h4>circleColor</h4>
                         <p><strong>Tipo:</strong> String<br>
                         <strong>Padrão:</strong> '#2ECC71'<br>
@@ -148,29 +149,29 @@ EconxLoader.init({
                 </div>
             </section>
 
-            <section id="exemplos" class="econx-section">
+            <section id="exemplos" class="metadax-section">
                 <h2>💡 Exemplos</h2>
 
                 <h3>Exemplo 1: Integração Básica</h3>
-                <div class="econx-code-block" data-lang="HTML">
+                <div class="metadax-code-block" data-lang="HTML">
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="https://cdn.loader.cloud.econx.com.br/econx-loader.js"></script>
+    <script src="https://cdn.loader.cloud.metadax.com.br/metadax-loader.js"></script>
 </head>
 <body>
     <script>
-        EconxLoader.init({
-            logoUrl: '/assets/images/econx_b.svg'
+        MetadaxLoader.init({
+            logoUrl: '/assets/images/metadax_p.svg'
         });
     </script>
 </body>
 </html></div>
 
                 <h3>Exemplo 2: Com Callback Personalizado</h3>
-                <div class="econx-code-block" data-lang="JavaScript">
-EconxLoader.init({
-    logoUrl: '/assets/images/econx_b.svg',
+                <div class="metadax-code-block" data-lang="JavaScript">
+MetadaxLoader.init({
+    logoUrl: '/assets/images/metadax_p.svg',
     duration: 3000,
     onShow: () => {
         // Pausar vídeos de fundo
@@ -179,7 +180,7 @@ EconxLoader.init({
     onHide: () => {
         // Analytics
         gtag('event', 'page_loaded', {
-            'custom_parameter': 'econx_loader_complete'
+            'custom_parameter': 'metadax_loader_complete'
         });
 
         // Iniciar animações da página
@@ -188,10 +189,10 @@ EconxLoader.init({
 });</div>
 
                 <h3>Exemplo 3: Controle Manual</h3>
-                <div class="econx-code-block" data-lang="JavaScript">
+                <div class="metadax-code-block" data-lang="JavaScript">
 // Inicializar sem auto-hide
-EconxLoader.init({
-    logoUrl: '/assets/images/econx_b.svg',
+MetadaxLoader.init({
+    logoUrl: '/assets/images/metadax_p.svg',
     autoHide: false
 });
 
@@ -205,56 +206,56 @@ async function loadPageContent() {
         renderContent(data);
 
         // Ocultar loader
-        EconxLoader.hide();
+        MetadaxLoader.hide();
     } catch (error) {
         console.error('Erro ao carregar:', error);
-        EconxLoader.hide();
+        MetadaxLoader.hide();
     }
 }</div>
             </section>
 
-            <section id="api" class="econx-section">
+            <section id="api" class="metadax-section">
                 <h2>📚 Referência da API</h2>
 
                 <h3>Métodos Disponíveis</h3>
 
-                <div class="econx-card-grid">
-                    <div class="econx-card">
-                        <h4>EconxLoader.init(config)</h4>
+                <div class="metadax-card-grid">
+                    <div class="metadax-card">
+                        <h4>MetadaxLoader.init(config)</h4>
                         <p>Inicializa o loader com as configurações especificadas.</p>
-                        <div class="econx-code-block" data-lang="JavaScript">
-EconxLoader.init({
-    logoUrl: '/assets/images/econx_b.svg',
+                        <div class="metadax-code-block" data-lang="JavaScript">
+MetadaxLoader.init({
+    logoUrl: '/assets/images/metadax_p.svg',
     duration: 2500
 });</div>
                     </div>
 
-                    <div class="econx-card">
-                        <h4>EconxLoader.show()</h4>
+                    <div class="metadax-card">
+                        <h4>MetadaxLoader.show()</h4>
                         <p>Exibe o loader manualmente.</p>
-                        <div class="econx-code-block" data-lang="JavaScript">
-EconxLoader.show();</div>
+                        <div class="metadax-code-block" data-lang="JavaScript">
+MetadaxLoader.show();</div>
                     </div>
 
-                    <div class="econx-card">
-                        <h4>EconxLoader.hide()</h4>
+                    <div class="metadax-card">
+                        <h4>MetadaxLoader.hide()</h4>
                         <p>Oculta o loader manualmente.</p>
-                        <div class="econx-code-block" data-lang="JavaScript">
-EconxLoader.hide();</div>
+                        <div class="metadax-code-block" data-lang="JavaScript">
+MetadaxLoader.hide();</div>
                     </div>
 
-                    <div class="econx-card">
-                        <h4>EconxLoader.isActive()</h4>
+                    <div class="metadax-card">
+                        <h4>MetadaxLoader.isActive()</h4>
                         <p>Verifica se o loader está ativo.</p>
-                        <div class="econx-code-block" data-lang="JavaScript">
-if (EconxLoader.isActive()) {
+                        <div class="metadax-code-block" data-lang="JavaScript">
+if (MetadaxLoader.isActive()) {
     console.log('Loader ativo');
 }</div>
                     </div>
                 </div>
 
                 <h3>Recursos e Especificações</h3>
-                <ul class="econx-feature-list">
+                <ul class="metadax-feature-list">
                     <li>Zero dependências externas</li>
                     <li>Compatível com IE11+ e todos navegadores modernos</li>
                     <li>Tamanho minificado: ~3KB gzipped</li>
@@ -266,29 +267,29 @@ if (EconxLoader.isActive()) {
                 </ul>
             </section>
 
-            <section class="econx-section econx-support-section">
+            <section class="metadax-section metadax-support-section">
                 <h2>🆘 Suporte e Comunidade</h2>
                 <p>
                     Precisa de ajuda? Nossa equipe está pronta para apoiar seu projeto.
                 </p>
 
-                <div class="econx-support-buttons">
-                    <a href="mailto:dev@econx.com.br" class="econx-btn econx-btn-primary">📧 Suporte Técnico</a>
-                    <a href="https://github.com/econx/loader" class="econx-btn econx-btn-outline">📖 GitHub</a>
-                    <button onclick="showDemo()" class="econx-btn econx-btn-outline">🎬 Ver Demo</button>
+                <div class="metadax-support-buttons">
+                    <a href="mailto:dev@metadax.com.br" class="metadax-btn metadax-btn-primary">📧 Suporte Técnico</a>
+                    <a href="https://github.com/metadax/loader" class="metadax-btn metadax-btn-outline">📖 GitHub</a>
+                    <button onclick="showDemo()" class="metadax-btn metadax-btn-outline">🎬 Ver Demo</button>
                 </div>
             </section>
         </div>
     </main>
 
-    <div id="demoLoader" class="econx-demo-loader">
-        <div class="econx-demo-logo-container">
-            <div class="econx-demo-loading-circle"></div>
-            <img class="econx-demo-logo" src="/assets/images/econx_b.svg" alt="ECONX Loader Demo Logo">
+    <div id="demoLoader" class="metadax-demo-loader">
+        <div class="metadax-demo-logo-container">
+            <div class="metadax-demo-loading-circle"></div>
+            <img class="metadax-demo-logo" src="/assets/images/metadax_b.svg" alt="METADAX Loader Demo Logo">
         </div>
     </div>
 
-    <script src="/econx-loader.js"></script>
+    <script src="/metadax-loader.js"></script>
     <script src="/component-loader.js"></script>
     <script>
         // Demo functionality
@@ -318,7 +319,7 @@ if (EconxLoader.isActive()) {
         // Active navigation highlighting
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.econx-nav a');
+            const navLinks = document.querySelectorAll('.metadax-nav a');
 
             let current = '';
             sections.forEach(section => {
@@ -337,9 +338,9 @@ if (EconxLoader.isActive()) {
         });
 
         // Console branding
-        console.log('%c🚀 ECONX Loader v1.0.0', 'color: #2ECC71; font-size: 16px; font-weight: bold;');
-        console.log('%c📚 Documentação: https://cdn.loader.cloud.econx.com.br/documentation.html', 'color: #1ABC9C; font-size: 12px;');
-        console.log('%c💻 CDN: https://cdn.loader.cloud.econx.com.br/econx-loader.js', 'color: #1ABC9C; font-size: 12px;');
+        console.log('%c🚀 METADAX Loader v1.0.0', 'color: #0056B3; font-size: 16px; font-weight: bold;');
+        console.log('%c📚 Documentação: https://cdn.loader.cloud.metadax.com.br/documentation.html', 'color: #1E1E1E; font-size: 12px;');
+        console.log('%c💻 CDN: https://cdn.loader.cloud.metadax.com.br/metadax-loader.js', 'color: #1E1E1E; font-size: 12px;');
     </script>
 </body>
 </html>

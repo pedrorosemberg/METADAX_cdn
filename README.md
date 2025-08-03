@@ -1,8 +1,8 @@
-# ECONX Loader
+# METADAX Loader
 
 Biblioteca JavaScript moderna para animações de carregamento profissionais com foco em performance e experiência do usuário.
 
-![ECONX Loader](https://img.shields.io/badge/version-1.0.0-brightgreen) ![License](https://img.shields.io/badge/license-MIT-blue) ![CDN](https://img.shields.io/badge/CDN-disponível-success)
+![METADAX Loader](https://img.shields.io/badge/version-1.0.0-brightgreen) ![License](https://img.shields.io/badge/license-MIT-blue) ![CDN](https://img.shields.io/badge/CDN-disponível-success)
 
 ## ✨ Características
 
@@ -11,7 +11,7 @@ Biblioteca JavaScript moderna para animações de carregamento profissionais com
 - 🎨 **Customizável** - Configure cores, tamanhos e comportamentos
 - ⚡ **Performance otimizada** - ~3KB gzipped via CDN
 - 🔧 **API simples** - Integração em menos de 5 minutos
-- 🎯 **Fonte Audiowide** - Consistência visual com a marca ECONX
+- 🎯 **Fonte Audiowide** - Consistência visual com a marca METADAX
 
 ## 🚀 Instalação Rápida
 
@@ -19,12 +19,12 @@ Biblioteca JavaScript moderna para animações de carregamento profissionais com
 
 ```html
 <!-- Inclua antes do fechamento do </head> -->
-<script src="https://cdn.loader.cloud.econx.com.br/econx-loader.js"></script>
+<script src="https://cdn.loader.cloud.metadax.com.br/metadax-loader.js"></script>
 
 <script>
 // Inicialização básica
-EconxLoader.init({
-    logoUrl: 'https://seu-site.com/logo-econx.png',
+MetadaxLoader.init({
+    logoUrl: 'https://seu-site.com/logo-metadax.png',
     duration: 2500
 });
 </script>
@@ -34,23 +34,23 @@ EconxLoader.init({
 
 ```bash
 # Baixar arquivo
-curl -O https://cdn.loader.cloud.econx.com.br/econx-loader.js
+curl -O https://cdn.loader.cloud.metadax.com.br/metadax-loader.js
 
 # Ou usando wget
-wget https://cdn.loader.cloud.econx.com.br/econx-loader.js
+wget https://cdn.loader.cloud.metadax.com.br/metadax-loader.js
 ```
 
 ## 📖 Uso Básico
 
 ```javascript
 // Configuração mínima
-EconxLoader.init({
-    logoUrl: '/assets/logo-econx.png'
+MetadaxLoader.init({
+    logoUrl: '/assets/logo-metadax.png'
 });
 
 // Configuração completa
-EconxLoader.init({
-    logoUrl: '/assets/logo-econx.png',
+MetadaxLoader.init({
+    logoUrl: '/assets/logo-metadax.png',
     duration: 3000,                    // Duração mínima (ms)
     fadeOut: 600,                      // Tempo de fade out (ms)
     autoHide: true,                    // Ocultar automaticamente
@@ -69,19 +69,19 @@ EconxLoader.init({
 ```php
 <?php
 // functions.php
-function add_econx_loader() {
-    wp_enqueue_script('econx-loader', 'https://cdn.loader.cloud.econx.com.br/econx-loader.js', [], '1.0.0', false);
+function add_metadax_loader() {
+    wp_enqueue_script('metadax-loader', 'https://cdn.loader.cloud.metadax.com.br/metadax-loader.js', [], '1.0.0', false);
     
-    $logo_url = get_template_directory_uri() . '/assets/logo-econx.png';
+    $logo_url = get_template_directory_uri() . '/assets/logo-metadax.png';
     
-    wp_add_inline_script('econx-loader', "
-        EconxLoader.init({
+    wp_add_inline_script('metadax-loader', "
+        MetadaxLoader.init({
             logoUrl: '{$logo_url}',
             duration: 2500
         });
     ");
 }
-add_action('wp_enqueue_scripts', 'add_econx_loader');
+add_action('wp_enqueue_scripts', 'add_metadax_loader');
 ?>
 ```
 
@@ -94,10 +94,10 @@ export default function App() {
     useEffect(() => {
         // Carregar script
         const script = document.createElement('script');
-        script.src = 'https://cdn.loader.cloud.econx.com.br/econx-loader.js';
+        script.src = 'https://cdn.loader.cloud.metadax.com.br/metadax-loader.js';
         script.onload = () => {
-            window.EconxLoader.init({
-                logoUrl: '/logo-econx.png',
+            window.MetadaxLoader.init({
+                logoUrl: '/logo-metadax.png',
                 duration: 2000,
                 onHide: () => {
                     console.log('App carregada completamente');
@@ -120,12 +120,12 @@ export default function App() {
 import { createApp } from 'vue'
 import App from './App.vue'
 
-// Carregar ECONX Loader
+// Carregar METADAX Loader
 const script = document.createElement('script');
-script.src = 'https://cdn.loader.cloud.econx.com.br/econx-loader.js';
+script.src = 'https://cdn.loader.cloud.metadax.com.br/metadax-loader.js';
 script.onload = () => {
-    window.EconxLoader.init({
-        logoUrl: '/logo-econx.png',
+    window.MetadaxLoader.init({
+        logoUrl: '/logo-metadax.png',
         duration: 2500
     });
 };
@@ -136,7 +136,7 @@ createApp(App).mount('#app')
 
 ## 🔧 API Referência
 
-### EconxLoader.init(config)
+### MetadaxLoader.init(config)
 
 Inicializa o loader com configurações personalizadas.
 
@@ -158,24 +158,24 @@ Inicializa o loader com configurações personalizadas.
 
 ```javascript
 // Exibir loader manualmente
-EconxLoader.show();
+MetadaxLoader.show();
 
 // Ocultar loader manualmente  
-EconxLoader.hide();
+MetadaxLoader.hide();
 
 // Verificar se está ativo
-if (EconxLoader.isActive()) {
+if (MetadaxLoader.isActive()) {
     console.log('Loader está visível');
 }
 
 // Obter configuração atual
-const config = EconxLoader.getConfig();
+const config = MetadaxLoader.getConfig();
 
 // Obter informações da versão
-const info = EconxLoader.getVersion();
+const info = MetadaxLoader.getVersion();
 
 // Destruir loader e limpar recursos
-EconxLoader.destroy();
+MetadaxLoader.destroy();
 ```
 
 ## 🎨 Customização Avançada
@@ -183,7 +183,7 @@ EconxLoader.destroy();
 ### Cores Personalizadas
 
 ```javascript
-EconxLoader.init({
+MetadaxLoader.init({
     logoUrl: '/logo.png',
     circleColor: '#FF6B6B',        // Vermelho
     backgroundColor: '#F8F9FA'      // Cinza claro
@@ -194,7 +194,7 @@ EconxLoader.init({
 
 ```javascript
 // Inicializar sem auto-hide
-EconxLoader.init({
+MetadaxLoader.init({
     logoUrl: '/logo.png',
     autoHide: false
 });
@@ -202,16 +202,16 @@ EconxLoader.init({
 // Controlar manualmente
 async function loadContent() {
     try {
-        EconxLoader.show();
+        MetadaxLoader.show();
         
         // Simular carregamento
         await fetch('/api/data');
         await new Promise(resolve => setTimeout(resolve, 2000));
         
-        EconxLoader.hide();
+        MetadaxLoader.hide();
     } catch (error) {
         console.error('Erro:', error);
-        EconxLoader.hide();
+        MetadaxLoader.hide();
     }
 }
 ```
@@ -219,12 +219,12 @@ async function loadContent() {
 ### Integração com Analytics
 
 ```javascript
-EconxLoader.init({
+MetadaxLoader.init({
     logoUrl: '/logo.png',
     onShow: () => {
         // Google Analytics
         gtag('event', 'loader_shown', {
-            'custom_parameter': 'econx_loader'
+            'custom_parameter': 'metadax_loader'
         });
     },
     onHide: () => {
@@ -250,9 +250,9 @@ EconxLoader.init({
 ### URLs Disponíveis
 
 ```
-Biblioteca JS:    https://cdn.loader.cloud.econx.com.br/econx-loader.js
-Documentação:     https://cdn.loader.cloud.econx.com.br/documentation.html
-Versão minificada: https://cdn.loader.cloud.econx.com.br/econx-loader.min.js
+Biblioteca JS:    https://cdn.loader.cloud.metadax.com.br/metadax-loader.js
+Documentação:     https://cdn.loader.cloud.metadax.com.br/documentation.html
+Versão minificada: https://cdn.loader.cloud.metadax.com.br/metadax-loader.min.js
 ```
 
 ### Verificação de Integridade
@@ -260,7 +260,7 @@ Versão minificada: https://cdn.loader.cloud.econx.com.br/econx-loader.min.js
 ```html
 <!-- Com verificação de integridade (recomendado para produção) -->
 <script 
-    src="https://cdn.loader.cloud.econx.com.br/econx-loader.js"
+    src="https://cdn.loader.cloud.metadax.com.br/metadax-loader.js"
     integrity="sha384-[hash-será-gerado]"
     crossorigin="anonymous">
 </script>
@@ -271,12 +271,12 @@ Versão minificada: https://cdn.loader.cloud.econx.com.br/econx-loader.min.js
 ### Estrutura do Projeto
 
 ```
-econx-loader/
+metadax-loader/
 ├── src/
-│   └── econx-loader.js      # Código fonte principal
+│   └── metadax-loader.js      # Código fonte principal
 ├── dist/
-│   ├── econx-loader.js      # Versão para desenvolvimento
-│   └── econx-loader.min.js  # Versão minificada
+│   ├── metadax-loader.js      # Versão para desenvolvimento
+│   └── metadax-loader.min.js  # Versão minificada
 ├── docs/
 │   └── documentation.html   # Documentação
 ├── examples/
@@ -284,7 +284,7 @@ econx-loader/
 │   ├── advanced.html       # Exemplo avançado
 │   └── frameworks/         # Exemplos para frameworks
 ├── tests/
-│   └── econx-loader.test.js # Testes unitários
+│   └── metadax-loader.test.js # Testes unitários
 ├── README.md
 ├── LICENSE
 └── package.json
@@ -318,18 +318,18 @@ npm run deploy
 
 ```javascript
 // Exemplo de teste unitário
-describe('ECONX Loader', () => {
+describe('METADAX Loader', () => {
     test('deve inicializar corretamente', () => {
-        EconxLoader.init({ logoUrl: '/test-logo.png' });
-        expect(EconxLoader.isActive()).toBe(true);
+        MetadaxLoader.init({ logoUrl: '/test-logo.png' });
+        expect(MetadaxLoader.isActive()).toBe(true);
     });
     
     test('deve ocultar após o tempo configurado', (done) => {
-        EconxLoader.init({ 
+        MetadaxLoader.init({ 
             logoUrl: '/test-logo.png',
             duration: 100,
             onHide: () => {
-                expect(EconxLoader.isActive()).toBe(false);
+                expect(MetadaxLoader.isActive()).toBe(false);
                 done();
             }
         });
@@ -343,17 +343,17 @@ describe('ECONX Loader', () => {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Teste ECONX Loader</title>
-    <script src="https://cdn.loader.cloud.econx.com.br/econx-loader.js"></script>
+    <title>Teste METADAX Loader</title>
+    <script src="https://cdn.loader.cloud.metadax.com.br/metadax-loader.js"></script>
 </head>
 <body>
     <h1>Página de Teste</h1>
-    <button onclick="EconxLoader.show()">Mostrar Loader</button>
-    <button onclick="EconxLoader.hide()">Ocultar Loader</button>
+    <button onclick="MetadaxLoader.show()">Mostrar Loader</button>
+    <button onclick="MetadaxLoader.hide()">Ocultar Loader</button>
     
     <script>
-        EconxLoader.init({
-            logoUrl: 'https://via.placeholder.com/200x50/2ECC71/FFFFFF?text=ECONX',
+        MetadaxLoader.init({
+            logoUrl: 'https://via.placeholder.com/200x50/2ECC71/FFFFFF?text=METADAX',
             autoHide: false
         });
     </script>
@@ -369,7 +369,7 @@ describe('ECONX Loader', () => {
 
 ```javascript
 // Verificar se a URL está correta
-EconxLoader.init({
+MetadaxLoader.init({
     logoUrl: 'https://example.com/logo.png', // URL completa
     onShow: () => {
         console.log('Loader iniciado');
@@ -383,14 +383,14 @@ EconxLoader.init({
 
 ```javascript
 // Verificar se autoHide está habilitado
-EconxLoader.init({
+MetadaxLoader.init({
     logoUrl: '/logo.png',
     autoHide: true,  // Deve estar true
     duration: 3000   // Ajustar tempo se necessário
 });
 
 // Forçar ocultação se necessário
-setTimeout(() => EconxLoader.hide(), 5000);
+setTimeout(() => MetadaxLoader.hide(), 5000);
 ```
 
 #### 3. Conflitos com outros scripts
@@ -400,7 +400,7 @@ setTimeout(() => EconxLoader.hide(), 5000);
 document.addEventListener('DOMContentLoaded', () => {
     // Aguardar outros scripts carregarem
     setTimeout(() => {
-        EconxLoader.init({
+        MetadaxLoader.init({
             logoUrl: '/logo.png',
             duration: 2000
         });
@@ -412,7 +412,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ```javascript
 // Otimizar configurações
-EconxLoader.init({
+MetadaxLoader.init({
     logoUrl: '/logo.png',
     duration: 1500,    // Reduzir tempo
     fadeOut: 300,      // Transição mais rápida
@@ -442,7 +442,7 @@ EconxLoader.init({
 ```html
 <!-- Para suporte ao IE11 -->
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6,Promise"></script>
-<script src="https://cdn.loader.cloud.econx.com.br/econx-loader.js"></script>
+<script src="https://cdn.loader.cloud.metadax.com.br/metadax-loader.js"></script>
 ```
 
 ## 🤝 Contribuição
@@ -483,7 +483,7 @@ Abra uma issue no GitHub com:
 - ✨ Animações CSS3 otimizadas
 - ✨ API completa para controle manual
 - ✨ Integração com fonte Audiowide
-- ✨ CDN oficial em cdn.loader.cloud.econx.com.br
+- ✨ CDN oficial em cdn.loader.cloud.metadax.com.br
 - ✨ Documentação completa
 - ✨ Suporte responsivo automático
 
@@ -491,10 +491,10 @@ Abra uma issue no GitHub com:
 
 ### Suporte Técnico
 
-- **Email:** dev@econx.com.br
-- **Documentação:** https://cdn.loader.cloud.econx.com.br/documentation.html
-- **GitHub:** https://github.com/econx/loader
-- **Status CDN:** https://status.econx.com.br
+- **Email:** dev@metadax.com.br
+- **Documentação:** https://cdn.loader.cloud.metadax.com.br/documentation.html
+- **GitHub:** https://github.com/metadax/loader
+- **Status CDN:** https://status.metadax.com.br
 
 ### Horários de Atendimento
 
@@ -534,4 +534,4 @@ SOFTWARE.
 
 ---
 
-**ECONX Loader v1.0.0** - Criado com ❤️ pela equipe METADAX
+**METADAX Loader v1.0.0** - Criado com ❤️ pela equipe METADAX

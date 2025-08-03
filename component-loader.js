@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             document.body.insertAdjacentHTML('afterbegin', data);
         })
-        .catch(error => console.error('ECONX Component Loader: Erro ao carregar o header:', error));
+        .catch(error => console.error('METADAX Component Loader: Erro ao carregar o header:', error));
 
     // Carrega o footer
     fetch('/components/html/footer.html')
@@ -13,5 +13,5 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             document.body.insertAdjacentHTML('beforeend', data);
         })
-        .catch(error => console.error('ECONX Component Loader: Erro ao carregar o footer:', error));
+        .catch(error => console.error('METADAX Component Loader: Erro ao carregar o footer:', error));
 });

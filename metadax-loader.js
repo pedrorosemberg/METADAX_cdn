@@ -1,9 +1,9 @@
 /*!
- * ECONX Loader v1.0.0
+ * METADAX Loader v1.0.0
  * Biblioteca JavaScript para animações de carregamento profissionais
  *
- * CDN: https://cdn.loader.cloud.econx.com.br/econx-loader.js
- * Docs: https://cdn.loader.cloud.econx.com.br/documentation.html
+ * CDN: https://cdn.loader.cloud.metadax.com.br/metadax-loader.js
+ * Docs: https://cdn.loader.cloud.metadax.com.br/documentation.html
  *
  * Copyright (c) 2025 METADAX Tecnologia e Serviços LTDA
  * CNPJ: 59.324.751/0001-06
@@ -16,9 +16,9 @@
     'use strict';
 
     /**
-     * EconxLoader - Classe principal para gerenciar o loader
+     * MetadaxLoader - Classe principal para gerenciar o loader
      */
-    class EconxLoaderLib {
+    class MetadaxLoaderLib {
         constructor() {
             this.version = '1.0.0';
             this.loader = null;
@@ -63,7 +63,7 @@
         /**
          * Inicializa o loader com configurações personalizadas
          * @param {Object} options - Opções de configuração
-         * @returns {EconxLoaderLib} - Instância para encadeamento
+         * @returns {MetadaxLoaderLib} - Instância para encadeamento
          */
         init(options = {}) {
             try {
@@ -81,7 +81,7 @@
                 this.loadFont();
 
                 // Atualizar logo se fornecida, usando a padrão se não houver
-                this.updateLogo(this.config.logoUrl || '/assets/images/econx_b.svg');
+                this.updateLogo(this.config.logoUrl || '/assets/images/loader.png');
 
                 // Mostrar loader
                 this.show();
@@ -106,13 +106,13 @@
          */
         setupLoader() {
             // Verificar se já existe
-            this.loader = document.getElementById('econx-loader');
+            this.loader = document.getElementById('metadax-loader');
 
             if (!this.loader) {
                 this.createLoader();
             }
 
-            this.logoImg = this.loader.querySelector('.econx-logo-img');
+            this.logoImg = this.loader.querySelector('.metadax-logo-img');
         }
 
         /**
@@ -120,26 +120,26 @@
          */
         createLoader() {
             // Inject CSS se não existir
-            if (!document.getElementById('econx-loader-styles')) {
+            if (!document.getElementById('metadax-loader-styles')) {
                 this.injectStyles();
             }
 
             // Criar HTML
             const loaderHTML = `
-                <div id="econx-loader" class="econx-loader">
-                    <div class="econx-logo-container">
-                        <div class="econx-loading-circle"></div>
-                        <img class="econx-logo-img" alt="Loading..." style="display: none;">
-                        <svg class="econx-logo-svg" viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg">
+                <div id="metadax-loader" class="metadax-loader">
+                    <div class="metadax-logo-container">
+                        <div class="metadax-loading-circle"></div>
+                        <img class="metadax-logo-img" alt="Loading..." style="display: none;">
+                        <svg class="metadax-logo-svg" viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg">
                             <defs>
-                                <linearGradient id="econx-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <linearGradient id="metadax-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
                                     <stop offset="0%" style="stop-color:#2ECC71;stop-opacity:1" />
                                     <stop offset="100%" style="stop-color:#1ABC9C;stop-opacity:1" />
                                 </linearGradient>
                             </defs>
                             <g>
-                                <path d="M20 20 L60 60 M60 20 L20 60" stroke="url(#econx-gradient)" stroke-width="8" stroke-linecap="round"/>
-                                <text x="90" y="55" font-family="Audiowide, Arial, sans-serif" font-size="36" font-weight="bold" fill="#333333">ECONX</text>
+                                <path d="M20 20 L60 60 M60 20 L20 60" stroke="url(#metadax-gradient)" stroke-width="8" stroke-linecap="round"/>
+                                <text x="90" y="55" font-family="Audiowide, Arial, sans-serif" font-size="36" font-weight="bold" fill="#333333">METADAX</text>
                             </g>
                         </svg>
                     </div>
@@ -148,7 +148,7 @@
 
             // Inserir no início do body
             document.body.insertAdjacentHTML('afterbegin', loaderHTML);
-            this.loader = document.getElementById('econx-loader');
+            this.loader = document.getElementById('metadax-loader');
         }
 
         /**
@@ -156,8 +156,8 @@
          */
         injectStyles() {
             const styles = `
-                <style id="econx-loader-styles">
-                    .econx-loader {
+                <style id="metadax-loader-styles">
+                    .metadax-loader {
                         position: fixed;
                         top: 0;
                         left: 0;
@@ -171,28 +171,28 @@
                         transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
                     }
 
-                    .econx-loader.econx-hidden {
+                    .metadax-loader.metadax-hidden {
                         opacity: 0;
                         visibility: hidden;
                     }
 
-                    .econx-logo-container {
+                    .metadax-logo-container {
                         position: relative;
                         display: flex;
                         align-items: center;
                         justify-content: center;
                     }
 
-                    .econx-logo-img, .econx-logo-svg {
+                    .metadax-logo-img, .metadax-logo-svg {
                         width: 280px;
                         height: auto;
                         max-width: 80vw;
-                        animation: econx-logo-breathing 2s ease-in-out infinite;
+                        animation: metadax-logo-breathing 2s ease-in-out infinite;
                         z-index: 2;
                         position: relative;
                     }
 
-                    .econx-loading-circle {
+                    .metadax-loading-circle {
                         position: absolute;
                         width: 320px;
                         height: 320px;
@@ -203,7 +203,7 @@
                         z-index: 1;
                     }
 
-                    .econx-loading-circle::before {
+                    .metadax-loading-circle::before {
                         content: '';
                         position: absolute;
                         top: -3px;
@@ -214,34 +214,34 @@
                         border-top: 3px solid #2ECC71;
                         border-right: 3px solid #1ABC9C;
                         border-radius: 50%;
-                        animation: econx-circle-rotate 1.5s linear infinite;
+                        animation: metadax-circle-rotate 1.5s linear infinite;
                     }
 
-                    @keyframes econx-logo-breathing {
+                    @keyframes metadax-logo-breathing {
                         0%, 100% { transform: scale(1); }
                         50% { transform: scale(1.05); }
                     }
 
-                    @keyframes econx-circle-rotate {
+                    @keyframes metadax-circle-rotate {
                         0% { transform: rotate(0deg); }
                         100% { transform: rotate(360deg); }
                     }
 
                     @media (max-width: 768px) {
-                        .econx-logo-img, .econx-logo-svg {
+                        .metadax-logo-img, .metadax-logo-svg {
                             width: 220px;
                         }
-                        .econx-loading-circle {
+                        .metadax-loading-circle {
                             width: 260px;
                             height: 260px;
                         }
                     }
 
                     @media (max-width: 480px) {
-                        .econx-logo-img, .econx-logo-svg {
+                        .metadax-logo-img, .metadax-logo-svg {
                             width: 180px;
                         }
-                        .econx-loading-circle {
+                        .metadax-loading-circle {
                             width: 220px;
                             height: 220px;
                         }
@@ -286,7 +286,7 @@
             this.loader.style.backgroundColor = this.config.backgroundColor;
 
             // Tamanho da logo
-            const logos = this.loader.querySelectorAll('.econx-logo-img, .econx-logo-svg');
+            const logos = this.loader.querySelectorAll('.metadax-logo-img, .metadax-logo-svg');
             logos.forEach(logo => {
                 if (this.config.logoSize) {
                     logo.style.width = this.config.logoSize;
@@ -301,15 +301,15 @@
          * Atualiza a cor do círculo de carregamento
          */
         updateCircleColor() {
-            const existingStyle = document.getElementById('econx-circle-color');
+            const existingStyle = document.getElementById('metadax-circle-color');
             if (existingStyle) {
                 existingStyle.remove();
             }
 
             const circleStyle = document.createElement('style');
-            circleStyle.id = 'econx-circle-color';
+            circleStyle.id = 'metadax-circle-color';
             circleStyle.textContent = `
-                .econx-loading-circle::before {
+                .metadax-loading-circle::before {
                     border-top-color: ${this.config.circleColor} !important;
                 }
             `;
@@ -323,8 +323,8 @@
         updateLogo(logoUrl) {
             if (!logoUrl || !this.loader) return;
 
-            const logoImg = this.loader.querySelector('.econx-logo-img');
-            const logoSvg = this.loader.querySelector('.econx-logo-svg');
+            const logoImg = this.loader.querySelector('.metadax-logo-img');
+            const logoSvg = this.loader.querySelector('.metadax-logo-svg');
 
             if (logoImg) {
                 logoImg.src = logoUrl;
@@ -361,7 +361,7 @@
 
         /**
          * Exibe o loader
-         * @returns {EconxLoaderLib} - Instância para encadeamento
+         * @returns {MetadaxLoaderLib} - Instância para encadeamento
          */
         show() {
             if (!this.loader) {
@@ -369,7 +369,7 @@
                 return this;
             }
 
-            this.loader.classList.remove('econx-hidden');
+            this.loader.classList.remove('metadax-hidden');
             this.loader.style.display = 'flex';
             this.isVisible = true;
 
@@ -388,7 +388,7 @@
 
         /**
          * Oculta o loader
-         * @returns {EconxLoaderLib} - Instância para encadeamento
+         * @returns {MetadaxLoaderLib} - Instância para encadeamento
          */
         hide() {
             if (!this.loader || !this.isVisible) {
@@ -396,7 +396,7 @@
             }
 
             this.loader.style.transition = `opacity ${this.config.fadeOut}ms ease-out, visibility ${this.config.fadeOut}ms ease-out`;
-            this.loader.classList.add('econx-hidden');
+            this.loader.classList.add('metadax-hidden');
             this.isVisible = false;
 
             // Remover do DOM após a animação
@@ -443,8 +443,8 @@
         getVersion() {
             return {
                 version: this.version,
-                cdn: 'https://cdn.loader.cloud.econx.com.br',
-                docs: 'https://cdn.loader.cloud.econx.com.br/documentation.html'
+                cdn: 'https://cdn.loader.cloud.metadax.com.br',
+                docs: 'https://cdn.loader.cloud.metadax.com.br/documentation.html'
             };
         }
 
@@ -455,7 +455,7 @@
          */
         log(message, level = 'info') {
             if (typeof console !== 'undefined') {
-                const prefix = 'ECONX Loader:';
+                const prefix = 'METADAX Loader:';
                 switch (level) {
                     case 'error':
                         console.error(prefix, message);
@@ -478,8 +478,8 @@
             }
 
             // Remover estilos
-            const styles = document.getElementById('econx-loader-styles');
-            const circleStyles = document.getElementById('econx-circle-color');
+            const styles = document.getElementById('metadax-loader-styles');
+            const circleStyles = document.getElementById('metadax-circle-color');
 
             if (styles) styles.remove();
             if (circleStyles) circleStyles.remove();
@@ -495,25 +495,25 @@
     }
 
     // Criar instância global
-    const EconxLoader = new EconxLoaderLib();
+    const MetadaxLoader = new MetadaxLoaderLib();
 
     // Expor globalmente
-    window.EconxLoader = EconxLoader;
+    window.MetadaxLoader = MetadaxLoader;
 
     // Também expor como módulo se suportado
     if (typeof module !== 'undefined' && module.exports) {
-        module.exports = EconxLoader;
+        module.exports = MetadaxLoader;
     }
 
     // AMD support
     if (typeof define === 'function' && define.amd) {
-        define('EconxLoader', [], function() {
-            return EconxLoader;
+        define('MetadaxLoader', [], function() {
+            return MetadaxLoader;
         });
     }
 
     // Log de carregamento
-    console.log('%c🚀 ECONX Loader v1.0.0 carregado', 'color: #2ECC71; font-size: 14px; font-weight: bold;');
-    console.log('%cCDN: https://cdn.loader.cloud.econx.com.br/econx-loader.js', 'color: #1ABC9C; font-size: 12px;');
+    console.log('%c🚀 METADAX Loader v1.0.0 carregado', 'color: #2ECC71; font-size: 14px; font-weight: bold;');
+    console.log('%cCDN: https://cdn.loader.cloud.metadax.com.br/metadax-loader.js', 'color: #1ABC9C; font-size: 12px;');
 
 })(window, document);

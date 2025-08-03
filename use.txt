@@ -70,11 +70,11 @@ ADICIONE NO CÓDIGO ENTRE O <HEAD>...</HEAD>:
 ADICIONE NO CÓDIGO ENTRE O <BODY>...</BODY>:
 
 
-    <script src="https://cdn.metadax.cloud/econx-loader.js"></script>
+    <script src="https://cdn.metadax.cloud/metadax-loader.js"></script>
     <script src="https://cdn.metadax.cloud/component-loader.js"></script>
     <script>
         // Inicializa o loader com a logo padrão
-        EconxLoader.init({
+        MetadaxLoader.init({
             logoUrl: 'https://cdn.metadax.cloud/assets/images/loader.png',
             duration: 3000
         });

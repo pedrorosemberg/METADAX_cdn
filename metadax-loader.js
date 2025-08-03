@@ -28,7 +28,7 @@
             // Configurações padrão do loader
             this.config = {
                 // Imagem padrão de carregamento
-                logoUrl: 'https://cdn.metadax.cloud/assets/images/loader.png',
+                logoUrl: '/assets/images/loader.png',
                 duration: 2500,
                 fadeOut: 600,
                 autoHide: true,

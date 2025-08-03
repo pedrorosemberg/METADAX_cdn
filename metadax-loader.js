@@ -81,7 +81,7 @@
                 this.loadFont();
 
                 // Atualizar logo se fornecida, usando a padrão se não houver
-                this.updateLogo(this.config.logoUrl || '/assets/images/loader.png');
+                this.updateLogo(this.config.logoUrl || '/assets/images/metadax_b.png');
 
                 // Mostrar loader
                 this.show();

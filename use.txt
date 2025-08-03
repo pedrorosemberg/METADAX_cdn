@@ -20,6 +20,49 @@ DARK HEADER IMAGE: https://cdn.metadax.cloud/assets/images/econx_b.png
 
 ADICIONE NO CÓDIGO ENTRE O <HEAD>...</HEAD>:
 
+    <link rel="canonical" href="https://metadax.com.br/">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+
+    <meta name="description" content="A METADAX oferece soluções de tecnologia e serviços de inovação, transformando a gestão de dados e impulsionando a inovação para sua empresa.">
+    <meta name="keywords" content="METADAX, tecnologia, serviços, nuvem, cloud, infraestrutura, software, dados, inovação, consultoria, Avenida Paulista">
+    <meta name="author" content="METADAX TECNOLOGIA E SERVIÇOS">
+    <meta name="publisher" content="METADAX TECNOLOGIA E SERVIÇOS">
+    <meta name="copyright" content="© 2025 METADAX TECNOLOGIA E SERVIÇOS. Todos os direitos reservados.">
+    <meta name="rating" content="General">
+    <meta name="geo.placename" content="São Paulo, SP, Brasil">
+    <meta name="geo.region" content="BR-SP">
+    <meta name="geo.position" content="-23.561353;-46.656086">
+    <meta name="ICBM" content="-23.561353, -46.656086">
+    <meta name="address" content="Avenida Paulista, 1106, Sala 01, Andar 16, Bela Vista, São Paulo, SP, CEP 01310-914, Brasil">
+
+    <meta property="og:title" content="METADAX - Tecnologia e Serviços">
+    <meta property="og:description" content="A METADAX oferece soluções de tecnologia e serviços de inovação, transformando a gestão de dados e impulsionando a inovação para sua empresa.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://metadax.com.br/">
+    <meta property="og:image" content="https://cdn.metadax.cloud/assets/images/metadax/desktop.png">
+    <meta property="og:image:alt" content="Logo da METADAX e serviços de tecnologia">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="METADAX">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@metadaxbr"> <meta name="twitter:creator" content="@metadaxbr">
+    <meta name="twitter:title" content="METADAX - Tecnologia e Serviços">
+    <meta name="twitter:description" content="A METADAX oferece soluções de tecnologia e serviços de inovação, transformando a gestão de dados e impulsionando a inovação para sua empresa.">
+    <meta name="twitter:image" content="https://cdn.metadax.cloud/assets/images/metadax/desktop.png">
+
+    <meta name="company" content="METADAX TECNOLOGIA E SERVIÇOS">
+    <meta name="cnpj" content="59.324.751/0001-06">
+    <meta name="address_line1" content="Avenida Paulista, 1106, Sala 01, Andar 16">
+    <meta name="address_city" content="São Paulo">
+    <meta name="address_state" content="SP">
+    <meta name="address_country" content="Brasil">
+    <meta name="postal_code" content="01310-914">
+
+    <meta name="generator" content="Visual Studio Code">
+    <meta name="referrer" content="origin-when-cross-origin">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
     <link rel="icon" type="image/x-icon" href="https://cdn.metadax.cloud/favicon.ico">
     <link rel="stylesheet" href="https://cdn.metadax.cloud/components/css/styles.css">
 

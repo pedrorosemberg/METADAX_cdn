@@ -133,7 +133,7 @@ body.metadax-body {
     display: inline-block !important;
     background: var(--metadax-gradient) !important;
     color: var(--metadax-white) !important;
-    padding: 10px 22px !important;
+    padding: 12px 20px !important;
     border-radius: 8px !important;
     text-decoration: none !important;
     font-weight: 500 !important;

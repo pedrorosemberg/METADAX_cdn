@@ -76,7 +76,7 @@ body.metadax-body {
 }
 
 .metadax-logo-link span {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    font-family: 'Audiowide', sans-serif !important;
     font-size: 24px !important;
     font-weight: 400 !important;
     color: var(--metadax-dark) !important;
@@ -106,59 +106,6 @@ body.metadax-body {
     box-shadow: 2px 0 10px rgba(0,0,0,0.1) !important;
     z-index: 999 !important;
 }
-
-/* Menu Secundário (Ecossistema) */
-.metadax-submenu {
-    position: sticky;
-    top: var(--metadax-header-height);
-    z-index: 999;
-    background: var(--metadax-gray-100);
-    border-bottom: 1px solid var(--metadax-gray-200);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-
-.metadax-submenu .metadax-container {
-    display: flex;
-    justify-content: center;
-}
-
-.metadax-submenu ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    list-style: none;
-    margin: 0;
-    padding: 10px 0;
-}
-
-.metadax-submenu ul li a {
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--metadax-primary);
-    padding: 6px 12px;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-}
-
-.metadax-submenu ul li a:hover {
-    background: var(--metadax-primary);
-    color: var(--metadax-white);
-}
-
-/* Mobile: menu secundário em lista */
-@media (max-width: 768px) {
-    .metadax-submenu ul {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 10px 20px;
-    }
-    .metadax-submenu ul li a {
-        width: 100%;
-    }
-}
-
 
 .metadax-nav.active {
     left: 0 !important;
@@ -225,7 +172,7 @@ body.metadax-body {
     color: var(--metadax-primary) !important;
     margin-bottom: 0.75rem !important;
     font-size: 1.1rem !important;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    font-family: 'Audiowide', sans-serif !important;
 }
 
 .metadax-footer-section ul {
@@ -277,6 +224,8 @@ body.metadax-body {
 }
 
 .metadax-small-metadax-info {
+    font-size: smaller !important;
+    text-align: center !important;
     margin-bottom: 5px !important;
 }
 
@@ -311,7 +260,7 @@ body.metadax-body {
 }
 
 .metadax-hero h1 {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    font-family: 'Audiowide', sans-serif !important;
     font-size: 3.5rem !important;
     font-weight: 400 !important;
     margin-bottom: 20px !important;
@@ -348,7 +297,7 @@ body.metadax-body {
 }
 
 .metadax-section h2 {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    font-family: 'Audiowide', sans-serif !important;
     font-size: 2.5rem !important;
     font-weight: 400 !important;
     color: var(--metadax-dark) !important;
@@ -679,112 +628,5 @@ body.metadax-body {
     .metadax-demo-loading-circle {
         width: 260px !important;
         height: 260px !important;
-    }
-}
-
-
-.metadax-footer {
-    background-color: var(--color-gray-100);
-    color: var(--color-gray-700);
-    padding: 30px 16px;
-    text-align: center;
-    border-top: 1px solid var(--color-gray-200);
-    font-size: 0.9rem;
-}
-
-.metadax-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0;
-}
-
-.metadax-footer-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 30px;
-    text-align: left;
-}
-
-.metadax-footer-section h4 {
-    color: var(--color-black);
-    margin-bottom: 15px;
-    font-weight: 600;
-}
-
-.metadax-footer-section ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.metadax-footer-section ul li {
-    margin-bottom: 8px;
-}
-
-.metadax-footer-section ul a {
-    color: var(--color-gray-700);
-    text-decoration: none;
-    transition: color 0.3s ease;
-    font-size: 0.85rem;
-}
-
-.metadax-footer-section ul a:hover {
-    color: var(--color-primary);
-}
-
-.metadax-small-sociallinks {
-    margin-top: 25px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.metadax-small-sociallinks a {
-    color: var(--color-gray-700);
-    text-decoration: none;
-    font-size: 0.85rem;
-}
-
-.metadax-small-sociallinks small {
-    color: var(--color-gray-700);
-}
-
-.metadax-copyright {
-    margin-top: 20px;
-    font-size: 0.8rem;
-    color: var(--color-gray-600);
-}
-
-.metadax-copyright .metadax-small-metadax-info {
-    margin-bottom: 5px;
-}
-
-@media (min-width: 769px) {
-    .metadax-footer {
-        padding: 40px 20px;
-    }
-
-    .metadax-footer-grid {
-        grid-template-columns: repeat(5, 1fr);
-        gap: 40px;
-        text-align: left;
-    }
-
-    .metadax-small-sociallinks {
-        justify-content: flex-start;
-        gap: 15px;
-    }
-
-    .metadax-copyright {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 30px;
-        text-align: left;
-    }
-
-    .metadax-copyright .metadax-small-metadax-info {
-        margin-bottom: 0;
     }
 }

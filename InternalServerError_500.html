@@ -3,70 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Teste - METADAX CDN</title>
-
+    <title>METADAX CDN CLOUD</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Audiowide:wght@400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="/components/css/styles.css">
+    <style>
+        /* Variáveis de cores para o tema claro */
+        :root {
+            --metadax-gray-50: #F9FAFB;
+            --metadax-gray-100: #F3F4F6;
+            --metadax-gray-200: #E5E7EB;
+            --metadax-gray-300: #D1D5DB;
+            --metadax-gray-400: #9CA3AF;
+            --metadax-gray-500: #6B7280;
+            --metadax-gray-600: #4B5563;
+            --metadax-gray-700: #374151;
+            --metadax-gray-800: #1F2937;
+            --metadax-gray-900: #111827;
+            --metadax-red-500: #EF4444;
+            --metadax-yellow-500: #F59E0B;
+            --metadax-green-500: #10B981;
+            --metadax-purple-500: #0056B3;
+        }
+
+        body.metadax-body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--metadax-gray-50); /* Fundo claro */
+            color: var(--metadax-gray-900); /* Texto escuro */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .metadax-main {
+            width: 100%;
+            max-width: 800px;
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+
+        .metadax-container {
+            background-color: white; /* Contêiner branco */
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Sombra mais suave */
+            border: 1px solid var(--metadax-gray-100);
+        }
+
+        h1 {
+            font-family: 'Audiowide', sans-serif;
+            text-align: center;
+            margin-top: 0;
+            color: var(--metadax-purple-500);
+        }
+
+        p {
+            text-align: center;
+            max-width: 600px;
+            margin: 1rem auto;
+            font-size: 1.1rem;
+            color: var(--metadax-gray-500); /* Texto mais escuro para maior contraste */
+        }
+
+        .content-placeholder {
+            min-height: 200px;
+            background: var(--metadax-gray-100); /* Fundo claro para o placeholder */
+            margin-top: 2rem;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--metadax-gray-600);
+            font-size: 1.2rem;
+        }
+        
+        /* Efeito Shimmer para tema claro */
+        .shimmer {
+            background: linear-gradient(-45deg, var(--metadax-gray-100) 25%, var(--metadax-gray-200) 50%, var(--metadax-gray-100) 75%);
+            background-size: 400% 100%;
+            animation: shimmer 1.5s infinite linear;
+            border-radius: 8px;
+            color: transparent !important;
+        }
+        
+        .shimmer-text {
+            display: inline-block;
+            height: 1.5rem;
+            width: 100%;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 100% 0;
+            }
+            100% {
+                background-position: -100% 0;
+            }
+        }
+        
+        /* Banners de Feedback */
+        .feedback-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            z-index: 1000;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .feedback-banner.show {
+            transform: translateY(0);
+        }
+
+        .loading-banner {
+            background-color: var(--metadax-purple-500);
+            color: white;
+        }
+
+        .error-banner {
+            background-color: var(--metadax-red-500);
+            color: white;
+        }
+
+    </style>
 </head>
 <body class="metadax-body">
     
+    <!-- Banner de Carregando -->
+    <div id="loading-banner" class="feedback-banner loading-banner show">
+        Carregando...
+    </div>
+
+    <!-- Banner de Erro (inicialmente oculto) -->
+    <div id="error-banner" class="feedback-banner error-banner">
+        ERRO INTERNO DO SERVIDOR
+    </div>
+    
     <main class="metadax-main">
         <div class="metadax-container">
-            <h1 style="text-align: center; margin-top: 50px;">Carregando...</h1>
-            <p style="text-align: center; max-width: 600px; margin: 20px auto; font-size: 1.1rem; color: var(--metadax-gray-600);">
+            <h1 id="main-title">Carregando...</h1>
+            <p id="main-paragraph">
                 Nossas ferramentas estão sendo acessadas.
             </p>
-            <div style="height: 400px; background: var(--metadax-gray-100); margin-top: 50px; padding: 20px; text-align: center; border-radius: 12px;">
+            <div class="content-placeholder">
                 <p><span id="error-code"></span></p>
             </div>
         </div>
     </main>
 
 <script>
-function generateErrorCode() {
-    // 1. Data/Hora ISO completa
-    const now = new Date();
-    const isoDate = now.toISOString();
+    function generateErrorCode() {
+        // 1. Data/Hora ISO completa
+        const now = new Date();
+        const isoDate = now.toISOString();
 
-    // 2. Salt baseado no timestamp
-    const salt = now.getTime().toString();
+        // 2. Salt baseado no timestamp
+        const salt = now.getTime().toString();
 
-    // 3. Alfabeto para código randômico
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    let code = "";
+        // 3. Alfabeto para código randômico
+        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        let code = "";
 
-    // 4. Gera 10 caracteres pseudo-randômicos usando salt
-    for (let i = 0; i < 10; i++) {
-        const index = (Math.floor(Math.random() * chars.length) + parseInt(salt[i % salt.length])) % chars.length;
-        code += chars.charAt(index);
+        // 4. Gera 10 caracteres pseudo-randômicos usando salt
+        for (let i = 0; i < 10; i++) {
+            const index = (Math.floor(Math.random() * chars.length) + parseInt(salt[i % salt.length])) % chars.length;
+            code += chars.charAt(index);
+        }
+
+        return isoDate + "<br><br>" + code;
     }
 
-    return isoDate + "<br><br>" + code;
-}
+    document.addEventListener("DOMContentLoaded", () => {
+        const loadingBanner = document.getElementById("loading-banner");
+        const errorBanner = document.getElementById("error-banner");
+        const mainTitle = document.getElementById("main-title");
+        const mainParagraph = document.getElementById("main-paragraph");
+        const errorCodeSpan = document.getElementById("error-code");
 
-document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("error-code").innerHTML = "⚠️ Isso está levando mais tempo que o normal...";
-    setTimeout(() => {
-        document.body.innerHTML = `
-            <main class="metadax-main">
-                <div class="metadax-container">
-                    <h1 style="text-align: center; margin-top: 50px;">[500] ERRO INTERNO DO SERVIDOR 🛟</h1>
-                    <p style="text-align: center; max-width: 600px; margin: 20px auto; font-size: 1.1rem; color: var(--metadax-gray-600);">
-                        Não sabemos o que aconteceu, mas iremos investigar.
-                    </p>
-                    <div style="height: 400px; background: var(--metadax-gray-100); margin-top: 50px; padding: 20px; text-align: center; border-radius: 12px;">
-                        <p><span id="error-code">${generateErrorCode()}</span></p>
-                    </div>
-                </div>
-            </main>
-        `;
-    }, 20000);
-});
+        // Aplica o efeito de shimmer ao conteúdo principal
+        mainTitle.classList.add("shimmer");
+        mainParagraph.classList.add("shimmer");
+        errorCodeSpan.textContent = "⚠️ Isso está levando mais tempo que o normal...";
+
+        // Mostra o banner de carregamento
+        loadingBanner.classList.add("show");
+
+        // Simula o erro após 10 segundos
+        setTimeout(() => {
+            // Esconde o banner de carregamento e o shimmer
+            loadingBanner.classList.remove("show");
+            mainTitle.classList.remove("shimmer");
+            mainParagraph.classList.remove("shimmer");
+
+            // Mostra o banner de erro e atualiza o conteúdo
+            errorBanner.classList.add("show");
+            mainTitle.textContent = "[500] ERRO INTERNO DO SERVIDOR 🛟";
+            mainTitle.style.color = "var(--metadax-red-500)";
+            mainParagraph.textContent = "Não sabemos o que aconteceu, mas iremos investigar.";
+            errorCodeSpan.innerHTML = generateErrorCode();
+
+        }, 21000); // Alterado para 10 segundos para agilizar o teste
+    });
 </script>
 
 </body>

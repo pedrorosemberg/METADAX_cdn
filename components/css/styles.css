@@ -107,11 +107,11 @@ body.metadax-body {
     z-index: 999 !important;
 }
 
-/* Menu Secundário (Ecossistema) */
+/* Menu Secundário (desktop) */
 .metadax-submenu {
     position: sticky;
     top: var(--metadax-header-height);
-    z-index: 999;
+    z-index: 998;
     background: var(--metadax-gray-100);
     border-bottom: 1px solid var(--metadax-gray-200);
     box-shadow: 0 2px 6px rgba(0,0,0,0.05);
@@ -147,15 +147,46 @@ body.metadax-body {
     color: var(--metadax-white);
 }
 
-/* Mobile: menu secundário em lista */
+/* Mobile: submenu entra dentro do menu-toggle */
 @media (max-width: 768px) {
+    .metadax-submenu {
+        position: static;       /* não fica sticky no mobile */
+        background: transparent;
+        border: none;
+        box-shadow: none;
+    }
+
+    .metadax-submenu .metadax-container {
+        padding: 0;
+    }
+
     .metadax-submenu ul {
         flex-direction: column;
         align-items: flex-start;
-        padding: 10px 20px;
+        padding: 0;
+        margin: 0;
     }
-    .metadax-submenu ul li a {
+
+    .metadax-submenu ul li {
         width: 100%;
+    }
+
+    .metadax-submenu ul li a {
+        display: block;
+        width: 100%;
+        padding: 0.5rem 0;
+        color: var(--metadax-dark);
+    }
+
+    /* truque: submenu aparece DENTRO do .metadax-nav quando no mobile */
+    .metadax-nav.active + .metadax-submenu {
+        display: block;
+        padding: 0.5rem 1rem;
+    }
+
+    /* quando menu está fechado, submenu some */
+    .metadax-submenu {
+        display: none;
     }
 }
 

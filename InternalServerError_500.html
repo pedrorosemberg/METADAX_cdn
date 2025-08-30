@@ -13,14 +13,6 @@
 
     <link rel="stylesheet" href="/components/css/styles.css">
 
-    <script src="/metadax-loader.js"></script>
-    <script>
-        // Inicializa o loader com a logo padrão
-        MetadaxLoader.init({
-            logoUrl: '/assets/images/metadax_b.svg',
-            duration: 3000
-        });
-    </script>
 </head>
 <body class="metadax-body">
     
@@ -36,7 +28,6 @@
         </div>
     </main>
 
-    <script src="/component-loader.js"></script>
 <script>
 function generateErrorCode() {
     // 1. Data/Hora ISO completa
@@ -57,7 +48,7 @@ function generateErrorCode() {
     }
 
     // 5. Exibe no HTML
-    document.getElementById("error-code").innerHTML = isoDate + "<br>" + code;
+    document.getElementById("error-code").innerHTML = isoDate + "<br><br>" + code;
 }
 
 // Chama a função assim que a página carregar

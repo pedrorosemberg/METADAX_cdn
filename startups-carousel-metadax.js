@@ -83,12 +83,6 @@
       flex: 0 0 auto;
       width: 280px;
       position: relative;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-
-    .metadax-carousel-slide:hover {
-      transform: translateY(-8px) scale(1.05);
-      z-index: 10;
     }
 
     .metadax-carousel-slide img {
@@ -100,13 +94,7 @@
       user-select: none;
       -webkit-user-drag: none;
       pointer-events: none;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       background: transparent;
-    }
-
-    .metadax-carousel-slide:hover img {
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
     }
 
     @media (max-width: 768px) {
@@ -116,10 +104,6 @@
 
       .metadax-carousel-slide {
         width: 220px;
-      }
-
-      .metadax-carousel-slide:hover {
-        transform: none;
       }
     }
 

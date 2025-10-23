@@ -298,6 +298,21 @@ body.metadax-body {
     text-decoration: underline !important;
 }
 
+.metadax-small-socialbadges {
+    font-size: 0.8rem !important;
+    color: var(--metadax-gray-300) !important;
+    margin-top: 20px !important;
+    display: flex !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 15px !important;
+}
+
+.metadax-small-socialbadges a {
+    color: var(--metadax-gray-300) !important;
+    text-decoration: none !important;
+}
+
 .metadax-copyright {
     text-align: center !important;
     padding-top: 1rem !important;

@@ -4,11 +4,19 @@
   // Configuração do carrossel
   const config = {
     images: [
-      'https://via.placeholder.com/1375x697/4A90E2/ffffff?text=Startup+1',
-      'https://via.placeholder.com/1375x697/7B68EE/ffffff?text=Startup+2',
-      'https://via.placeholder.com/1375x697/50C878/ffffff?text=Startup+3',
-      'https://via.placeholder.com/1375x697/FF6B6B/ffffff?text=Startup+4',
-      'https://via.placeholder.com/1375x697/FFA500/ffffff?text=Startup+5'
+      'https://cdn.metadax.cloud/assets/images/metadax/startups/capivara.png',
+      'https://cdn.metadax.cloud/assets/images/metadax/startups/creditix.png',
+      'https://cdn.metadax.cloud/assets/images/metadax/startups/curamente.png',
+      'https://cdn.metadax.cloud/assets/images/metadax/startups/econx.png',
+      'https://cdn.metadax.cloud/assets/images/metadax/startups/ietesp.png',
+      'https://cdn.metadax.cloud/assets/images/metadax/startups/logicadocaos.png',
+      'https://cdn.metadax.cloud/assets/images/metadax/startups/mobivin.png',
+      'https://cdn.metadax.cloud/assets/images/metadax/startups/neovolt.png',
+      'https://cdn.metadax.cloud/assets/images/metadax/startups/seekpay.png',
+      'https://cdn.metadax.cloud/assets/images/metadax/startups/veiacriativa.png',
+      'https://cdn.metadax.cloud/assets/images/metadax/startups/dragonx.png',
+      'https://cdn.metadax.cloud/assets/images/metadax/startups/icc.png',
+      'https://cdn.metadax.cloud/assets/images/metadax/startups/marketguru.png'
     ],
     autoPlayInterval: 4000,
     transitionDuration: 600

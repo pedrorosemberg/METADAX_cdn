@@ -16,9 +16,12 @@ LIGHT HEADER IMAGE: https://cdn.metadax.cloud/assets/images/logo-white.png
 
 DARK HEADER IMAGE: https://cdn.metadax.cloud/assets/images/metadax/logo-black.png
 
+----- INFO ADICIONAIS
 
+    <span id="startups-carrousel-metadax-js"></span>
+    <script src="https://cdn.metadax.cloud/startups-carousel-metadax.js"></script>
 
-ADICIONE NO CÓDIGO ENTRE O <HEAD>...</HEAD>:
+----- ADICIONE NO CÓDIGO ENTRE O <HEAD>...</HEAD>:
 
     <!-- Google tag (gtag.js) -->
     <script async
@@ -78,7 +81,7 @@ ADICIONE NO CÓDIGO ENTRE O <HEAD>...</HEAD>:
     <link rel="stylesheet" href="https://cdn.metadax.cloud/components/css/styles.css">
 
 
-ADICIONE NO CÓDIGO ENTRE O <BODY>...</BODY>:
+----- ADICIONE NO CÓDIGO ENTRE O <BODY>...</BODY>:
 
 
     <script src="https://cdn.metadax.cloud/metadax-loader.js"></script>

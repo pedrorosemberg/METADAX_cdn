@@ -18,9 +18,10 @@
       'https://cdn.metadax.cloud/assets/images/metadax/startups/icc.png',
       'https://cdn.metadax.cloud/assets/images/metadax/startups/marketguru.png'
     ],
-    autoPlayInterval: 4000,
+    autoPlayInterval: 3500,
     transitionDuration: 800,
-    slideGap: 20
+    slideGap: 24,
+    containerPadding: 40
   };
 
   const targetElement = document.getElementById('startups-carrousel-metadax-js');
@@ -45,10 +46,12 @@
       width: 100%;
       max-width: 100vw;
       margin: 0 auto;
+      padding: ${config.containerPadding}px;
       overflow: hidden;
       background: transparent;
       cursor: grab;
       user-select: none;
+      box-sizing: border-box;
     }
 
     .metadax-carousel-container:active {
@@ -59,7 +62,6 @@
       position: relative;
       width: 100%;
       overflow: hidden;
-      padding: 20px 0;
     }
 
     .metadax-carousel-track {
@@ -73,20 +75,20 @@
       transition: none;
     }
 
+    .metadax-carousel-track.no-transition {
+      transition: none;
+    }
+
     .metadax-carousel-slide {
       flex: 0 0 auto;
-      width: calc((100vw - 80px - ${config.slideGap * 2}px) / 3);
-      max-width: 450px;
+      width: 280px;
       position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
     .metadax-carousel-slide:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+      transform: translateY(-8px) scale(1.05);
+      z-index: 10;
     }
 
     .metadax-carousel-slide img {
@@ -98,23 +100,22 @@
       user-select: none;
       -webkit-user-drag: none;
       pointer-events: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      background: transparent;
     }
 
-    @media (max-width: 1200px) {
-      .metadax-carousel-slide {
-        width: calc((100vw - 60px - ${config.slideGap}px) / 2);
-        max-width: 500px;
-      }
+    .metadax-carousel-slide:hover img {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
     }
 
     @media (max-width: 768px) {
-      .metadax-carousel-wrapper {
-        padding: 15px 0;
+      .metadax-carousel-container {
+        padding: 24px;
       }
 
       .metadax-carousel-slide {
-        width: calc(100vw - 60px);
-        max-width: none;
+        width: 220px;
       }
 
       .metadax-carousel-slide:hover {
@@ -123,8 +124,12 @@
     }
 
     @media (max-width: 480px) {
+      .metadax-carousel-container {
+        padding: 20px;
+      }
+
       .metadax-carousel-slide {
-        width: calc(100vw - 40px);
+        width: 200px;
       }
     }
   `;
@@ -135,62 +140,88 @@
   const container = targetElement.querySelector('.metadax-carousel-container');
   const track = targetElement.querySelector('.metadax-carousel-track');
 
-  let currentIndex = 0;
-  let autoPlayTimer = null;
-  let isDragging = false;
-  let startPos = 0;
+  // Duplica as imagens para criar efeito infinito
+  const repeatedImages = [...config.images, ...config.images, ...config.images];
+  
   let currentTranslate = 0;
   let prevTranslate = 0;
+  let isDragging = false;
+  let startPos = 0;
   let animationID = null;
+  let autoPlayTimer = null;
+  let isTransitioning = false;
 
-  config.images.forEach((imgSrc, index) => {
+  // Cria os slides
+  repeatedImages.forEach((imgSrc, index) => {
     const slide = document.createElement('div');
     slide.className = 'metadax-carousel-slide';
-    slide.innerHTML = `<img src="${imgSrc}" alt="Startup ${index + 1}" loading="${index < 3 ? 'eager' : 'lazy'}">`;
+    slide.innerHTML = `<img src="${imgSrc}" alt="Startup" loading="${index < 6 ? 'eager' : 'lazy'}">`;
     track.appendChild(slide);
   });
 
   const slides = Array.from(track.querySelectorAll('.metadax-carousel-slide'));
+  const originalLength = config.images.length;
 
   function getSlideWidth() {
     return slides[0].offsetWidth + config.slideGap;
   }
 
-  function getSlidesPerView() {
-    const containerWidth = container.offsetWidth;
-    const slideWidth = slides[0].offsetWidth;
-    return Math.floor(containerWidth / (slideWidth + config.slideGap));
+  function setPosition(position, instant = false) {
+    if (instant) {
+      track.classList.add('no-transition');
+    }
+    track.style.transform = `translateX(${position}px)`;
+    if (instant) {
+      setTimeout(() => track.classList.remove('no-transition'), 50);
+    }
   }
 
-  function setPositionByIndex() {
+  // Inicia no meio do array para permitir scroll infinito
+  function initPosition() {
     const slideWidth = getSlideWidth();
-    currentTranslate = -currentIndex * slideWidth;
+    currentTranslate = -originalLength * slideWidth;
     prevTranslate = currentTranslate;
-    track.style.transform = `translateX(${currentTranslate}px)`;
+    setPosition(currentTranslate, true);
   }
 
-  function nextSlide() {
-    const maxIndex = Math.max(0, slides.length - getSlidesPerView());
-    if (currentIndex < maxIndex) {
-      currentIndex++;
-    } else {
-      currentIndex = 0;
+  function checkInfiniteScroll() {
+    const slideWidth = getSlideWidth();
+    const totalWidth = originalLength * slideWidth;
+    
+    // Se passou muito para a direita, volta para o meio
+    if (currentTranslate > -slideWidth * 2) {
+      currentTranslate -= totalWidth;
+      prevTranslate = currentTranslate;
+      setPosition(currentTranslate, true);
     }
-    setPositionByIndex();
+    
+    // Se passou muito para a esquerda, volta para o meio
+    if (currentTranslate < -(totalWidth * 2 + slideWidth * 2)) {
+      currentTranslate += totalWidth;
+      prevTranslate = currentTranslate;
+      setPosition(currentTranslate, true);
+    }
   }
 
-  function prevSlide() {
-    if (currentIndex > 0) {
-      currentIndex--;
-    } else {
-      currentIndex = Math.max(0, slides.length - getSlidesPerView());
-    }
-    setPositionByIndex();
+  function autoScroll() {
+    if (isTransitioning || isDragging) return;
+    
+    isTransitioning = true;
+    const slideWidth = getSlideWidth();
+    currentTranslate -= slideWidth;
+    prevTranslate = currentTranslate;
+    
+    setPosition(currentTranslate);
+    
+    setTimeout(() => {
+      checkInfiniteScroll();
+      isTransitioning = false;
+    }, config.transitionDuration);
   }
 
   function startAutoPlay() {
     stopAutoPlay();
-    autoPlayTimer = setInterval(nextSlide, config.autoPlayInterval);
+    autoPlayTimer = setInterval(autoScroll, config.autoPlayInterval);
   }
 
   function stopAutoPlay() {
@@ -202,10 +233,10 @@
 
   function resetAutoPlay() {
     stopAutoPlay();
-    startAutoPlay();
+    setTimeout(startAutoPlay, 1000);
   }
 
-  // Mouse events
+  // Mouse/Touch events
   function touchStart(event) {
     isDragging = true;
     startPos = event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
@@ -229,18 +260,21 @@
     const movedBy = currentTranslate - prevTranslate;
     const slideWidth = getSlideWidth();
 
-    if (movedBy < -slideWidth / 4 && currentIndex < slides.length - getSlidesPerView()) {
-      currentIndex++;
-    } else if (movedBy > slideWidth / 4 && currentIndex > 0) {
-      currentIndex--;
-    }
+    // Snap para o slide mais próximo
+    const snapPosition = Math.round(currentTranslate / slideWidth) * slideWidth;
+    currentTranslate = snapPosition;
+    prevTranslate = currentTranslate;
 
-    setPositionByIndex();
-    resetAutoPlay();
+    setPosition(currentTranslate);
+    
+    setTimeout(() => {
+      checkInfiniteScroll();
+      resetAutoPlay();
+    }, config.transitionDuration);
   }
 
   function animation() {
-    track.style.transform = `translateX(${currentTranslate}px)`;
+    setPosition(currentTranslate, true);
     if (isDragging) requestAnimationFrame(animation);
   }
 
@@ -253,18 +287,32 @@
   });
 
   // Mobile touch
-  container.addEventListener('touchstart', touchStart);
-  container.addEventListener('touchmove', touchMove);
+  container.addEventListener('touchstart', touchStart, { passive: true });
+  container.addEventListener('touchmove', touchMove, { passive: true });
   container.addEventListener('touchend', touchEnd);
 
   // Scroll do mouse
   container.addEventListener('wheel', (e) => {
     e.preventDefault();
+    if (isTransitioning) return;
+    
+    isTransitioning = true;
+    const slideWidth = getSlideWidth();
+    
     if (e.deltaY > 0) {
-      nextSlide();
+      currentTranslate -= slideWidth;
     } else {
-      prevSlide();
+      currentTranslate += slideWidth;
     }
+    
+    prevTranslate = currentTranslate;
+    setPosition(currentTranslate);
+    
+    setTimeout(() => {
+      checkInfiniteScroll();
+      isTransitioning = false;
+    }, config.transitionDuration);
+    
     resetAutoPlay();
   }, { passive: false });
 
@@ -277,10 +325,12 @@
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
-      setPositionByIndex();
+      initPosition();
     }, 250);
   });
 
+  // Inicializa
+  initPosition();
   startAutoPlay();
 
   window.addEventListener('beforeunload', stopAutoPlay);

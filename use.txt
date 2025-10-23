@@ -1,3 +1,5 @@
+----- LINKS
+
 CSS: https://cdn.metadax.cloud/components/css/styles.css
 
 FAVICON: https://cdn.metadax.cloud/favicon.ico
@@ -8,7 +10,7 @@ COMPONENT-LOADER: https://cdn.metadax.cloud/component-loader.js
 
 HEADER: https://cdn.metadax.cloud/components/html/header.html
 
-FOOTER: https://cdn.metadax.cloud/components/html/header.html
+FOOTER: https://cdn.metadax.cloud/components/html/footer.html
 
 HEADER IMAGE: https://cdn.metadax.cloud/assets/images/logo-black.png
 
@@ -16,7 +18,7 @@ LIGHT HEADER IMAGE: https://cdn.metadax.cloud/assets/images/logo-white.png
 
 DARK HEADER IMAGE: https://cdn.metadax.cloud/assets/images/metadax/logo-black.png
 
------ INFO ADICIONAIS
+----- INFO ADICIONAIS - carrousel contendo as iniciativas e startups da METADAX
 
     <span id="startups-carrousel-metadax-js"></span>
     <script src="https://cdn.metadax.cloud/startups-carousel-metadax.js"></script>

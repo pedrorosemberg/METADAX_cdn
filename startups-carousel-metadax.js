@@ -29,12 +29,12 @@
     transitionDuration: 800,
     
     // 📏 Espaçamento entre as imagens (em pixels)
-    slideGap: 24,
+    slideGap: 35,
     
     // 📦 Padding do container (em pixels)
     containerPadding: 40,
     
-    // 🖼️ TAMANHO DAS IMAGENS - ALTERE AQUI!
+    // 🖼️ TAMANHO DAS IMAGENS
     slideWidth: {
       desktop: 81,      // Largura no desktop (em pixels)
       tablet: 67.5,       // Largura em tablets (em pixels)

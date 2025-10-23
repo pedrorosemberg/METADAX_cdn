@@ -354,7 +354,7 @@ body.metadax-body {
 
 @media (min-width: 1024px) {
   .metadax-small-socialbadges img {
-    width: 100px !important; /* Tamanho fixo para desktop */
+    width: 80px !important; /* Tamanho fixo para desktop */
   }
 }
 

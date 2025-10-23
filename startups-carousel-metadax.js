@@ -1,8 +1,11 @@
 (function() {
   'use strict';
   
-  // Configuração do carrossel
+  // ========================================
+  // 🎨 CONFIGURAÇÃO DO CARROSSEL
+  // ========================================
   const config = {
+    // URLs das imagens
     images: [
       'https://cdn.metadax.cloud/assets/images/metadax/startups/capivara.png',
       'https://cdn.metadax.cloud/assets/images/metadax/startups/creditix.png',
@@ -18,10 +21,25 @@
       'https://cdn.metadax.cloud/assets/images/metadax/startups/icc.png',
       'https://cdn.metadax.cloud/assets/images/metadax/startups/marketguru.png'
     ],
+    
+    // ⏱️ Velocidade do autoplay (em milissegundos)
     autoPlayInterval: 3500,
+    
+    // ⚡ Duração da transição (em milissegundos)
     transitionDuration: 800,
+    
+    // 📏 Espaçamento entre as imagens (em pixels)
     slideGap: 24,
-    containerPadding: 40
+    
+    // 📦 Padding do container (em pixels)
+    containerPadding: 40,
+    
+    // 🖼️ TAMANHO DAS IMAGENS - ALTERE AQUI!
+    slideWidth: {
+      desktop: 180,      // Largura no desktop (em pixels)
+      tablet: 150,       // Largura em tablets (em pixels)
+      mobile: 130        // Largura em celulares (em pixels)
+    }
   };
 
   const targetElement = document.getElementById('startups-carrousel-metadax-js');

@@ -19,10 +19,10 @@
       'https://cdn.metadax.cloud/assets/images/metadax/startups/marketguru.png'
     ],
     autoPlayInterval: 4000,
-    transitionDuration: 600
+    transitionDuration: 800,
+    slideGap: 20
   };
 
-  // Encontra o elemento alvo
   const targetElement = document.getElementById('startups-carrousel-metadax-js');
   
   if (!targetElement) {
@@ -30,27 +30,14 @@
     return;
   }
 
-  // Cria a estrutura HTML
   const carouselHTML = `
     <div class="metadax-carousel-container">
       <div class="metadax-carousel-wrapper">
         <div class="metadax-carousel-track"></div>
       </div>
-      <button class="metadax-carousel-btn metadax-carousel-prev" aria-label="Anterior">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="metadax-carousel-btn metadax-carousel-next" aria-label="Próximo">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <div class="metadax-carousel-indicators"></div>
     </div>
   `;
 
-  // Injeta CSS
   const style = document.createElement('style');
   style.textContent = `
     .metadax-carousel-container {
@@ -59,202 +46,150 @@
       max-width: 100vw;
       margin: 0 auto;
       overflow: hidden;
-      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      background: transparent;
+      cursor: grab;
+      user-select: none;
+    }
+
+    .metadax-carousel-container:active {
+      cursor: grabbing;
     }
 
     .metadax-carousel-wrapper {
       position: relative;
       width: 100%;
       overflow: hidden;
+      padding: 20px 0;
     }
 
     .metadax-carousel-track {
       display: flex;
-      transition: transform ${config.transitionDuration}ms cubic-bezier(0.4, 0, 0.2, 1);
+      gap: ${config.slideGap}px;
+      transition: transform ${config.transitionDuration}ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
       will-change: transform;
     }
 
+    .metadax-carousel-track.dragging {
+      transition: none;
+    }
+
     .metadax-carousel-slide {
-      flex: 0 0 100%;
+      flex: 0 0 auto;
+      width: calc((100vw - 80px - ${config.slideGap * 2}px) / 3);
+      max-width: 450px;
       position: relative;
-      aspect-ratio: 1375 / 697;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .metadax-carousel-slide:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
     }
 
     .metadax-carousel-slide img {
       width: 100%;
-      height: 100%;
+      height: auto;
+      aspect-ratio: 1375 / 697;
       object-fit: cover;
       display: block;
       user-select: none;
       -webkit-user-drag: none;
+      pointer-events: none;
     }
 
-    .metadax-carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 50px;
-      height: 50px;
-      border: none;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.9);
-      color: #1e3c72;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 10;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    .metadax-carousel-btn:hover {
-      background: #ffffff;
-      transform: translateY(-50%) scale(1.1);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .metadax-carousel-btn:active {
-      transform: translateY(-50%) scale(0.95);
-    }
-
-    .metadax-carousel-prev {
-      left: 20px;
-    }
-
-    .metadax-carousel-next {
-      right: 20px;
-    }
-
-    .metadax-carousel-indicators {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 10px;
-      z-index: 10;
-    }
-
-    .metadax-carousel-indicator {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.5);
-      border: 2px solid rgba(255, 255, 255, 0.8);
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .metadax-carousel-indicator.active {
-      background: #ffffff;
-      transform: scale(1.2);
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-    }
-
-    .metadax-carousel-indicator:hover {
-      background: rgba(255, 255, 255, 0.8);
-      transform: scale(1.1);
+    @media (max-width: 1200px) {
+      .metadax-carousel-slide {
+        width: calc((100vw - 60px - ${config.slideGap}px) / 2);
+        max-width: 500px;
+      }
     }
 
     @media (max-width: 768px) {
-      .metadax-carousel-btn {
-        width: 40px;
-        height: 40px;
+      .metadax-carousel-wrapper {
+        padding: 15px 0;
       }
 
-      .metadax-carousel-prev {
-        left: 10px;
+      .metadax-carousel-slide {
+        width: calc(100vw - 60px);
+        max-width: none;
       }
 
-      .metadax-carousel-next {
-        right: 10px;
+      .metadax-carousel-slide:hover {
+        transform: none;
       }
+    }
 
-      .metadax-carousel-indicators {
-        bottom: 10px;
-      }
-
-      .metadax-carousel-indicator {
-        width: 10px;
-        height: 10px;
+    @media (max-width: 480px) {
+      .metadax-carousel-slide {
+        width: calc(100vw - 40px);
       }
     }
   `;
   document.head.appendChild(style);
 
-  // Renderiza o carrossel
   targetElement.innerHTML = carouselHTML;
 
-  // Elementos do DOM
   const container = targetElement.querySelector('.metadax-carousel-container');
   const track = targetElement.querySelector('.metadax-carousel-track');
-  const prevBtn = targetElement.querySelector('.metadax-carousel-prev');
-  const nextBtn = targetElement.querySelector('.metadax-carousel-next');
-  const indicatorsContainer = targetElement.querySelector('.metadax-carousel-indicators');
 
-  // Estado do carrossel
   let currentIndex = 0;
   let autoPlayTimer = null;
-  let isTransitioning = false;
+  let isDragging = false;
+  let startPos = 0;
+  let currentTranslate = 0;
+  let prevTranslate = 0;
+  let animationID = null;
 
-  // Cria os slides
   config.images.forEach((imgSrc, index) => {
     const slide = document.createElement('div');
     slide.className = 'metadax-carousel-slide';
-    slide.innerHTML = `<img src="${imgSrc}" alt="Startup ${index + 1}" loading="${index === 0 ? 'eager' : 'lazy'}">`;
+    slide.innerHTML = `<img src="${imgSrc}" alt="Startup ${index + 1}" loading="${index < 3 ? 'eager' : 'lazy'}">`;
     track.appendChild(slide);
-
-    // Cria indicador
-    const indicator = document.createElement('button');
-    indicator.className = 'metadax-carousel-indicator';
-    indicator.setAttribute('aria-label', `Ir para slide ${index + 1}`);
-    if (index === 0) indicator.classList.add('active');
-    indicator.addEventListener('click', () => goToSlide(index));
-    indicatorsContainer.appendChild(indicator);
   });
 
-  // Função para ir para um slide específico
-  function goToSlide(index) {
-    if (isTransitioning) return;
-    
-    isTransitioning = true;
-    currentIndex = index;
-    
-    const offset = -currentIndex * 100;
-    track.style.transform = `translateX(${offset}%)`;
-    
-    updateIndicators();
-    resetAutoPlay();
-    
-    setTimeout(() => {
-      isTransitioning = false;
-    }, config.transitionDuration);
+  const slides = Array.from(track.querySelectorAll('.metadax-carousel-slide'));
+
+  function getSlideWidth() {
+    return slides[0].offsetWidth + config.slideGap;
   }
 
-  // Função para próximo slide
+  function getSlidesPerView() {
+    const containerWidth = container.offsetWidth;
+    const slideWidth = slides[0].offsetWidth;
+    return Math.floor(containerWidth / (slideWidth + config.slideGap));
+  }
+
+  function setPositionByIndex() {
+    const slideWidth = getSlideWidth();
+    currentTranslate = -currentIndex * slideWidth;
+    prevTranslate = currentTranslate;
+    track.style.transform = `translateX(${currentTranslate}px)`;
+  }
+
   function nextSlide() {
-    const nextIndex = (currentIndex + 1) % config.images.length;
-    goToSlide(nextIndex);
+    const maxIndex = Math.max(0, slides.length - getSlidesPerView());
+    if (currentIndex < maxIndex) {
+      currentIndex++;
+    } else {
+      currentIndex = 0;
+    }
+    setPositionByIndex();
   }
 
-  // Função para slide anterior
   function prevSlide() {
-    const prevIndex = (currentIndex - 1 + config.images.length) % config.images.length;
-    goToSlide(prevIndex);
+    if (currentIndex > 0) {
+      currentIndex--;
+    } else {
+      currentIndex = Math.max(0, slides.length - getSlidesPerView());
+    }
+    setPositionByIndex();
   }
 
-  // Atualiza indicadores
-  function updateIndicators() {
-    const indicators = indicatorsContainer.querySelectorAll('.metadax-carousel-indicator');
-    indicators.forEach((indicator, index) => {
-      indicator.classList.toggle('active', index === currentIndex);
-    });
-  }
-
-  // AutoPlay
   function startAutoPlay() {
+    stopAutoPlay();
     autoPlayTimer = setInterval(nextSlide, config.autoPlayInterval);
   }
 
@@ -270,55 +205,84 @@
     startAutoPlay();
   }
 
-  // Event listeners
-  prevBtn.addEventListener('click', prevSlide);
-  nextBtn.addEventListener('click', nextSlide);
-
-  // Pausa o autoplay ao passar o mouse
-  container.addEventListener('mouseenter', stopAutoPlay);
-  container.addEventListener('mouseleave', startAutoPlay);
-
-  // Suporte para touch/swipe
-  let touchStartX = 0;
-  let touchEndX = 0;
-
-  container.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
+  // Mouse events
+  function touchStart(event) {
+    isDragging = true;
+    startPos = event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+    animationID = requestAnimationFrame(animation);
+    track.classList.add('dragging');
     stopAutoPlay();
-  });
+  }
 
-  container.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-    startAutoPlay();
-  });
-
-  function handleSwipe() {
-    const swipeThreshold = 50;
-    const diff = touchStartX - touchEndX;
-    
-    if (Math.abs(diff) > swipeThreshold) {
-      if (diff > 0) {
-        nextSlide();
-      } else {
-        prevSlide();
-      }
+  function touchMove(event) {
+    if (isDragging) {
+      const currentPosition = event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+      currentTranslate = prevTranslate + currentPosition - startPos;
     }
   }
 
-  // Suporte para navegação por teclado
-  container.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') {
-      prevSlide();
-    } else if (e.key === 'ArrowRight') {
-      nextSlide();
+  function touchEnd() {
+    isDragging = false;
+    cancelAnimationFrame(animationID);
+    track.classList.remove('dragging');
+
+    const movedBy = currentTranslate - prevTranslate;
+    const slideWidth = getSlideWidth();
+
+    if (movedBy < -slideWidth / 4 && currentIndex < slides.length - getSlidesPerView()) {
+      currentIndex++;
+    } else if (movedBy > slideWidth / 4 && currentIndex > 0) {
+      currentIndex--;
     }
+
+    setPositionByIndex();
+    resetAutoPlay();
+  }
+
+  function animation() {
+    track.style.transform = `translateX(${currentTranslate}px)`;
+    if (isDragging) requestAnimationFrame(animation);
+  }
+
+  // Desktop drag
+  container.addEventListener('mousedown', touchStart);
+  container.addEventListener('mousemove', touchMove);
+  container.addEventListener('mouseup', touchEnd);
+  container.addEventListener('mouseleave', () => {
+    if (isDragging) touchEnd();
   });
 
-  // Inicia o autoplay
+  // Mobile touch
+  container.addEventListener('touchstart', touchStart);
+  container.addEventListener('touchmove', touchMove);
+  container.addEventListener('touchend', touchEnd);
+
+  // Scroll do mouse
+  container.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    if (e.deltaY > 0) {
+      nextSlide();
+    } else {
+      prevSlide();
+    }
+    resetAutoPlay();
+  }, { passive: false });
+
+  // Pause on hover
+  container.addEventListener('mouseenter', stopAutoPlay);
+  container.addEventListener('mouseleave', startAutoPlay);
+
+  // Resize handler
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      setPositionByIndex();
+    }, 250);
+  });
+
   startAutoPlay();
 
-  // Cleanup ao sair da página
   window.addEventListener('beforeunload', stopAutoPlay);
 
 })();

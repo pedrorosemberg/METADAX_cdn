@@ -36,9 +36,9 @@
     
     // 🖼️ TAMANHO DAS IMAGENS - ALTERE AQUI!
     slideWidth: {
-      desktop: 180,      // Largura no desktop (em pixels)
-      tablet: 150,       // Largura em tablets (em pixels)
-      mobile: 130        // Largura em celulares (em pixels)
+      desktop: 81,      // Largura no desktop (em pixels)
+      tablet: 67.5,       // Largura em tablets (em pixels)
+      mobile: 58.5        // Largura em celulares (em pixels)
     }
   };
 

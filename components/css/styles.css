@@ -323,7 +323,7 @@ body.metadax-body {
 }
 
 .metadax-small-socialbadges img {
-  width: clamp(80px, 15vw, 150px) !important;
+  width: clamp(80px, 15vw, 100px) !important;
   height: auto !important;
   display: block !important;
   object-fit: contain !important;

@@ -298,23 +298,58 @@ body.metadax-body {
     text-decoration: underline !important;
 }
 
-.metadax-socialbadges {
-    font-size: 0.8rem !important;
-    color: var(--metadax-gray-300) !important;
-    margin-top: 20px !important;
-    display: flex !important;
-    justify-content: center !important;
-    flex-wrap: wrap !important;
+.metadax-small-socialbadges {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: clamp(20px, 4vw, 40px) !important;
+  margin: 20px auto !important;
+  padding: 20px !important;
+  max-width: 100% !important;
+}
+
+.metadax-small-socialbadges a {
+  display: inline-block !important;
+  text-decoration: none !important;
+  transition: transform 0.3s ease, opacity 0.3s ease !important;
+  flex-shrink: 0 !important;
+}
+
+.metadax-small-socialbadges a:hover,
+.metadax-small-socialbadges a:focus {
+  transform: scale(1.1) !important;
+  opacity: 0.85 !important;
+}
+
+.metadax-small-socialbadges img {
+  width: clamp(80px, 15vw, 120px) !important;
+  height: auto !important;
+  display: block !important;
+  object-fit: contain !important;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .metadax-small-socialbadges {
+    gap: clamp(15px, 3vw, 25px) !important;
+    padding: 15px !important;
+  }
+  
+  .metadax-small-socialbadges img {
+    width: clamp(70px, 20vw, 100px) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .metadax-small-socialbadges {
     gap: 15px !important;
-}
-
-.metadax-socialbadges a {
-    color: var(--metadax-gray-300) !important;
-    text-decoration: none !important;
-}
-
-.metadax-socialbadges img {
-    width: 30px;
+    padding: 10px !important;
+  }
+  
+  .metadax-small-socialbadges img {
+    width: clamp(60px, 25vw, 90px) !important;
+  }
 }
 
 .metadax-copyright {

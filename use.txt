@@ -18,6 +18,9 @@ LIGHT HEADER IMAGE: https://cdn.metadax.cloud/assets/images/logo-white.png
 
 DARK HEADER IMAGE: https://cdn.metadax.cloud/assets/images/metadax/logo-black.png
 
+GLOBAL WHATSAPP BUTTON: <script src="https://cdn.metadax.cloud/components/scripts/whatsapp-button.js"></script>
+
+
 ----- INFO ADICIONAIS - carrousel contendo as iniciativas e startups da METADAX
 
     <span id="startups-carrousel-metadax-js"></span>
@@ -86,6 +89,7 @@ DARK HEADER IMAGE: https://cdn.metadax.cloud/assets/images/metadax/logo-black.pn
 ----- ADICIONE NO CÓDIGO ENTRE O <BODY>...</BODY>:
 
 
+    <script src="https://cdn.metadax.cloud/components/scripts/whatsapp-button.js"></script>
     <script src="https://cdn.metadax.cloud/metadax-loader.js"></script>
     <script src="https://cdn.metadax.cloud/component-loader.js"></script>
     <script>

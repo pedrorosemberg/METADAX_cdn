@@ -1,0 +1,31 @@
+### Descrição Técnica do `global-privacy-cover.js`
+
+O script `https://cdn.metadax.cloud/global-privacy-cover.js` é um *wrapper* de segurança *client-side* projetado para implementar e reforçar programaticamente diversas políticas de segurança diretamente no DOM (Document Object Model). Ele atua como uma camada de defesa em profundidade (defense-in-depth), focando em mitigações que podem ser executadas no navegador do usuário.
+
+Suas funcionalidades são divididas nas seguintes categorias:
+
+#### 1. Injeção Dinâmica de Políticas de Segurança (Meta Tags)
+
+O núcleo do script é sua capacidade de injetar tags `<meta>` no `<head>` do documento assim que o DOM começa a ser processado. Isso permite aplicar políticas de segurança críticas sem depender da configuração do servidor.
+
+As políticas injetadas incluem:
+
+* **`Content-Security-Policy` (CSP):** A mitigação mais poderosa contra ataques de Cross-Site Scripting (XSS). O script injeta `<meta http-equiv="Content-Security-Policy" content="...">`, que define *whitelists* explícitas (diretivas) para fontes de conteúdo, como `script-src` (de onde scripts podem ser carregados), `style-src` (CSS), e `connect-src` (APIs). Crucialmente, esta política pode incluir a diretiva `frame-ancestors 'none'` ou `frame-ancestors 'self'`, que é a substituição moderna e mais eficaz para o antigo cabeçalho `X-Frame-Options`, provendo a principal defesa contra ataques de *Clickjacking*.
+* **`Permissions-Policy` (anteriormente `Feature-Policy`):** Esta política, injetada via `<meta http-equiv="Permissions-Policy" content="...">`, permite um controle granular sobre quais APIs e recursos do navegador a página (e seus iframes) pode acessar. Seguindo o princípio do menor privilégio, o script pode ser configurado para desabilitar programaticamente o acesso a APIs sensíveis como `geolocation=()`, `camera=()`, `microphone=()`, e `payment=()`, reduzindo drasticamente a superfície de ataque caso um script de terceiros seja comprometido.
+* **`Referrer-Policy`:** Para controlar o vazamento de informações em requisições HTTP, o script injeta `<meta name="referrer" content="...">`. Ao definir um valor como `no-referrer` ou `strict-origin-when-cross-origin`, ele impede que URLs sensíveis (como páginas de redefinição de senha ou dados em parâmetros de URL) sejam enviadas no cabeçalho `Referer` para sites externos.
+
+#### 2. Mitigação de Exfiltração de Conteúdo
+
+Para dificultar a cópia de dados sensíveis por usuários, o script anexa *event listeners* globais:
+
+* **Bloqueio de Menu de Contexto:** Um *listener* no evento `contextmenu` previne a exibição do menu de clique com o botão direito.
+* **Bloqueio de Atalhos de Teclado:** Um *listener* no evento `keydown` intercepta e bloqueia combinações de teclas comuns para cópia (Ctrl+C, Cmd+C), recorte (Ctrl+X), seleção total (Ctrl+A) e abertura de ferramentas de inspeção (F12, Ctrl+Shift+I).
+
+É importante notar que esta é uma medida de *dificultação*, não de segurança absoluta, pois não pode impedir a inspeção via menus do navegador ou a captura de tela (uma função do Sistema Operacional).
+
+#### 3. Scripts de *Fallback* e Reforço
+
+O script também implementa *fallbacks* em JavaScript puro para cenários onde as meta-tags podem não ser suficientes ou para navegadores mais antigos:
+
+* **Redirecionamento para HTTPS:** O script verifica `window.location.protocol`. Se for `http:` (e o *hostname* não for `localhost`), ele força um redirecionamento para `https:`. Esta é uma mitigação de último recurso, muito inferior ao cabeçalho `Strict-Transport-Security` (HSTS) — que *não pode* ser definido via meta tag —, mas que ajuda a proteger usuários que acessam o site por um link inseguro.
+* **Fallback de *Frame-Busting***: Como um *fallback* para a diretiva `frame-ancestors` do CSP, o script inclui uma verificação (`if (window.top !== window.self)`). Se a página for detectada dentro de um frame, ela força a localização da janela principal (`window.top.location.href`) a ser redefinida para a sua própria URL, "estourando" o frame e frustrando o *Clickjacking*.

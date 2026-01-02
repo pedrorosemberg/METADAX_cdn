@@ -7,19 +7,19 @@
   const config = {
     // URLs das imagens
     images: [
-      'https://cdn.metadax.cloud/assets/images/metadax/startups/capivara.png',
-      'https://cdn.metadax.cloud/assets/images/metadax/startups/creditix.png',
-      'https://cdn.metadax.cloud/assets/images/metadax/startups/curamente.png',
-      'https://cdn.metadax.cloud/assets/images/metadax/startups/econx.png',
-      'https://cdn.metadax.cloud/assets/images/metadax/startups/ietesp.png',
-      'https://cdn.metadax.cloud/assets/images/metadax/startups/logicadocaos.png',
-      'https://cdn.metadax.cloud/assets/images/metadax/startups/mobivin.png',
-      'https://cdn.metadax.cloud/assets/images/metadax/startups/neovolt.png',
-      'https://cdn.metadax.cloud/assets/images/metadax/startups/seekpay.png',
-      'https://cdn.metadax.cloud/assets/images/metadax/startups/veiacriativa.png',
-      'https://cdn.metadax.cloud/assets/images/metadax/startups/dragonx.png',
-      'https://cdn.metadax.cloud/assets/images/metadax/startups/icc.png',
-      'https://cdn.metadax.cloud/assets/images/metadax/startups/marketguru.png'
+      'https://cdn.metadax.com.br/assets/images/metadax/startups/capivara.png',
+      'https://cdn.metadax.com.br/assets/images/metadax/startups/creditix.png',
+      'https://cdn.metadax.com.br/assets/images/metadax/startups/curamente.png',
+      'https://cdn.metadax.com.br/assets/images/metadax/startups/econx.png',
+      'https://cdn.metadax.com.br/assets/images/metadax/startups/ietesp.png',
+      'https://cdn.metadax.com.br/assets/images/metadax/startups/logicadocaos.png',
+      'https://cdn.metadax.com.br/assets/images/metadax/startups/mobivin.png',
+      'https://cdn.metadax.com.br/assets/images/metadax/startups/neovolt.png',
+      'https://cdn.metadax.com.br/assets/images/metadax/startups/seekpay.png',
+      'https://cdn.metadax.com.br/assets/images/metadax/startups/veiacriativa.png',
+      'https://cdn.metadax.com.br/assets/images/metadax/startups/dragonx.png',
+      'https://cdn.metadax.com.br/assets/images/metadax/startups/icc.png',
+      'https://cdn.metadax.com.br/assets/images/metadax/startups/marketguru.png'
     ],
     
     // ⏱️ Velocidade do autoplay (em milissegundos)

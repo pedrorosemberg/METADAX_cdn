@@ -14,7 +14,7 @@
   const CONFIG = {
     csp: {
       'default-src': "'self'",
-      'script-src': "'self' 'unsafe-inline' https://cdn.metadax.cloud https://cdnjs.cloudflare.com",
+      'script-src': "'self' 'unsafe-inline' https://cdn.metadax.com.br https://cdnjs.cloudflare.com",
       'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com",
       'font-src': "'self' https://fonts.gstatic.com",
       'img-src': "'self' data: https:",

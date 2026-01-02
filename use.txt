@@ -1,30 +1,30 @@
 ----- LINKS
 
-CSS: https://cdn.metadax.cloud/components/css/styles.css
+CSS: https://cdn.metadax.com.br/components/css/styles.css
 
-FAVICON: https://cdn.metadax.cloud/favicon.ico
+FAVICON: https://cdn.metadax.com.br/favicon.ico
 
-LOADER: https://cdn.metadax.cloud/metadax-loader.js
+LOADER: https://cdn.metadax.com.br/metadax-loader.js
 
-COMPONENT-LOADER: https://cdn.metadax.cloud/component-loader.js
+COMPONENT-LOADER: https://cdn.metadax.com.br/component-loader.js
 
-HEADER: https://cdn.metadax.cloud/components/html/header.html
+HEADER: https://cdn.metadax.com.br/components/html/header.html
 
-FOOTER: https://cdn.metadax.cloud/components/html/footer.html
+FOOTER: https://cdn.metadax.com.br/components/html/footer.html
 
-HEADER IMAGE: https://cdn.metadax.cloud/assets/images/logo-black.png
+HEADER IMAGE: https://cdn.metadax.com.br/assets/images/logo-black.png
 
-LIGHT HEADER IMAGE: https://cdn.metadax.cloud/assets/images/logo-white.png
+LIGHT HEADER IMAGE: https://cdn.metadax.com.br/assets/images/logo-white.png
 
-DARK HEADER IMAGE: https://cdn.metadax.cloud/assets/images/metadax/logo-black.png
+DARK HEADER IMAGE: https://cdn.metadax.com.br/assets/images/metadax/logo-black.png
 
-GLOBAL WHATSAPP BUTTON: <script src="https://cdn.metadax.cloud/components/scripts/whatsapp-button.js"></script>
+GLOBAL WHATSAPP BUTTON: <script src="https://cdn.metadax.com.br/components/scripts/whatsapp-button.js"></script>
 
 
 ----- INFO ADICIONAIS - carrousel contendo as iniciativas e startups da METADAX
 
     <span id="startups-carrousel-metadax-js"></span>
-    <script src="https://cdn.metadax.cloud/startups-carousel-metadax.js"></script>
+    <script src="https://cdn.metadax.com.br/startups-carousel-metadax.js"></script>
 
 ----- ADICIONE NO CÓDIGO ENTRE O <HEAD>...</HEAD>:
 
@@ -68,7 +68,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta property="og:description" content="A METADAX oferece soluções de tecnologia e serviços de inovação, transformando a gestão de dados e impulsionando a inovação para sua empresa.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://metadax.com.br/">
-    <meta property="og:image" content="https://cdn.metadax.cloud/assets/images/metadax/desktop.png">
+    <meta property="og:image" content="https://cdn.metadax.com.br/assets/images/metadax/desktop.png">
     <meta property="og:image:alt" content="Logo da METADAX e serviços de tecnologia">
     <meta property="og:locale" content="pt_BR">
     <meta property="og:site_name" content="METADAX">
@@ -77,7 +77,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta name="twitter:site" content="@metadaxbr"> <meta name="twitter:creator" content="@metadaxbr">
     <meta name="twitter:title" content="METADAX - Tecnologia e Serviços">
     <meta name="twitter:description" content="A METADAX oferece soluções de tecnologia e serviços de inovação, transformando a gestão de dados e impulsionando a inovação para sua empresa.">
-    <meta name="twitter:image" content="https://cdn.metadax.cloud/assets/images/metadax/desktop.png">
+    <meta name="twitter:image" content="https://cdn.metadax.com.br/assets/images/metadax/desktop.png">
 
     <meta name="company" content="METADAX TECNOLOGIA E SERVIÇOS">
     <meta name="cnpj" content="59.324.751/0001-06">
@@ -91,8 +91,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta name="referrer" content="origin-when-cross-origin">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <link rel="icon" type="image/x-icon" href="https://cdn.metadax.cloud/favicon.ico">
-    <link rel="stylesheet" href="https://cdn.metadax.cloud/components/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="https://cdn.metadax.com.br/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.metadax.com.br/components/css/styles.css">
 
 ----- AICIONE NO CÓDIGO LOGO ANTES DO FECHAMENTO DA </HEADER>:
 
@@ -126,13 +126,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 ----- ADICIONE NO CÓDIGO ENTRE O <BODY>...</BODY>:
 
 
-    <script src="https://cdn.metadax.cloud/components/scripts/whatsapp-button.js"></script>
-    <script src="https://cdn.metadax.cloud/metadax-loader.js"></script>
-    <script src="https://cdn.metadax.cloud/component-loader.js"></script>
+    <script src="https://cdn.metadax.com.br/components/scripts/whatsapp-button.js"></script>
+    <script src="https://cdn.metadax.com.br/metadax-loader.js"></script>
+    <script src="https://cdn.metadax.com.br/component-loader.js"></script>
     <script>
         // Inicializa o loader com a logo padrão
         MetadaxLoader.init({
-            logoUrl: 'https://cdn.metadax.cloud/assets/images/loader.png',
+            logoUrl: 'https://cdn.metadax.com.br/assets/images/loader.png',
             duration: 3000
         });
     </script>

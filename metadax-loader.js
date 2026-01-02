@@ -2,8 +2,8 @@
  * METADAX Loader v1.0.0
  * Biblioteca JavaScript para animações de carregamento profissionais
  *
- * CDN: https://cdn.metadax.cloud/
- * Docs: https://cdn.metadax.cloud/documentation.html
+ * CDN: https://cdn.metadax.com.br/
+ * Docs: https://cdn.metadax.com.br/documentation.html
  *
  * Copyright (c) 2025 METADAX Tecnologia e Serviços LTDA
  * CNPJ: 59.324.751/0001-06
@@ -467,8 +467,8 @@
             return {
                 version: this.version,
                 // Corrigido para o CDN solicitado
-                cdn: 'https://cdn.metadax.cloud',
-                docs: 'https://cdn.metadax.cloud/documentation.html'
+                cdn: 'https://cdn.metadax.com.br',
+                docs: 'https://cdn.metadax.com.br/documentation.html'
             };
         }
 
@@ -538,6 +538,6 @@
 
     // Log de carregamento corrigido
     console.log('%c🚀 METADAX Loader v1.0.0 carregado', 'color: #0056B3; font-size: 14px; font-weight: bold;');
-    console.log('%cCDN: https://cdn.metadax.cloud/metadax-loader.js', 'color: #1E1E1E; font-size: 12px;');
+    console.log('%cCDN: https://cdn.metadax.com.br/metadax-loader.js', 'color: #1E1E1E; font-size: 12px;');
 
 })(window, document);

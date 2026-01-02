@@ -1,6 +1,6 @@
 ### Descrição Técnica do `global-privacy-cover.js`
 
-O script `https://cdn.metadax.cloud/global-privacy-cover.js` é um *wrapper* de segurança *client-side* projetado para implementar e reforçar programaticamente diversas políticas de segurança diretamente no DOM (Document Object Model). Ele atua como uma camada de defesa em profundidade (defense-in-depth), focando em mitigações que podem ser executadas no navegador do usuário.
+O script `https://cdn.metadax.com.br/global-privacy-cover.js` é um *wrapper* de segurança *client-side* projetado para implementar e reforçar programaticamente diversas políticas de segurança diretamente no DOM (Document Object Model). Ele atua como uma camada de defesa em profundidade (defense-in-depth), focando em mitigações que podem ser executadas no navegador do usuário.
 
 Suas funcionalidades são divididas nas seguintes categorias:
 

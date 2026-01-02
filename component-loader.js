@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     const components = [
-        'https://cdn.metadax.cloud/components/html/header.html',
-        'https://cdn.metadax.cloud/components/html/footer.html',
-        'https://cdn.metadax.cloud/components/html/back-to-top.html',
-        'https://cdn.metadax.cloud/components/html/privacy-banner.html',
-        'https://cdn.metadax.cloud/components/html/new-info.html'
+        'https://cdn.metadax.com.br/components/html/header.html',
+        'https://cdn.metadax.com.br/components/html/footer.html',
+        'https://cdn.metadax.com.br/components/html/back-to-top.html',
+        'https://cdn.metadax.com.br/components/html/privacy-banner.html',
+        'https://cdn.metadax.com.br/components/html/new-info.html'
     ];
 
     const loadComponent = (url, position = 'beforeend') => {

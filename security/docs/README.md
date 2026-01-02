@@ -51,7 +51,7 @@ Adicione o script no `<head>` do seu HTML, **antes de qualquer outro script**:
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Global Privacy Cover - DEVE SER O PRIMEIRO SCRIPT -->
-    <script src="https://cdn.metadax.cloud/global-privacy-cover.js"></script>
+    <script src="https://cdn.metadax.com.br/global-privacy-cover.js"></script>
     
     <title>Minha Aplicação Segura</title>
 </head>
@@ -68,7 +68,7 @@ Adicione o script no `<head>` do seu HTML, **antes de qualquer outro script**:
 git clone https://github.com/metadax/global-privacy-cover.git
 
 # Ou baixe diretamente
-wget https://cdn.metadax.cloud/global-privacy-cover.js
+wget https://cdn.metadax.com.br/global-privacy-cover.js
 ```
 
 Inclua o arquivo localmente:
@@ -86,7 +86,7 @@ Inclua o arquivo localmente:
 O script é auto-executável. Basta incluí-lo no HTML:
 
 ```html
-<script src="https://cdn.metadax.cloud/global-privacy-cover.js"></script>
+<script src="https://cdn.metadax.com.br/global-privacy-cover.js"></script>
 ```
 
 ### Verificação da Ativação
@@ -113,7 +113,7 @@ const CONFIG = {
   // Content Security Policy
   csp: {
     'default-src': "'self'",
-    'script-src': "'self' 'unsafe-inline' https://cdn.metadax.cloud",
+    'script-src': "'self' 'unsafe-inline' https://cdn.metadax.com.br",
     'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com",
     'font-src': "'self' https://fonts.gstatic.com",
     'img-src': "'self' data: https:",
@@ -190,7 +190,7 @@ Injeta uma meta tag `Content-Security-Policy` que define whitelists explícitas 
 
 ```html
 <meta http-equiv="Content-Security-Policy" 
-      content="default-src 'self'; script-src 'self' https://cdn.metadax.cloud; frame-ancestors 'none'">
+      content="default-src 'self'; script-src 'self' https://cdn.metadax.com.br; frame-ancestors 'none'">
 ```
 
 **Proteção oferecida:**

@@ -117,7 +117,7 @@ const CONFIG = {
     'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com",
     'font-src': "'self' https://fonts.gstatic.com",
     'img-src': "'self' data: https:",
-    'connect-src': "'self' https://api.metadax.cloud",
+    'connect-src': "'self' https://api.metadax.com.br",
     'frame-ancestors': "'none'",  // Previne clickjacking
     'base-uri': "'self'",
     'form-action': "'self'"
@@ -493,6 +493,6 @@ SOFTWARE.
 
 **Desenvolvido com ❤️ pela equipe MetaDax Security**
 
-[Website](https://metadax.cloud) • [Blog](https://blog.metadax.cloud) • [Twitter](https://twitter.com/metadax)
+[Website](https://metadax.cloud) • [Blog](https://blog.metadax.com.br) • [Twitter](https://twitter.com/metadax)
 
 </div>
